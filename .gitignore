@@ -1,0 +1,18 @@
+# Sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Variáveis de ambiente (senhas, chaves de API)
+.env
+.env.*
+
+# Arquivos temporários
+*.tmp
+*.log
+
+
+
