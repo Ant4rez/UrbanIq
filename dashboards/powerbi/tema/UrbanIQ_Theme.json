@@ -1,0 +1,216 @@
+{
+  "name": "UrbanIQ Institucional",
+  "dataColors": [
+    "#1E3A5F",
+    "#F57C00",
+    "#1565C0",
+    "#2E7D32",
+    "#C62828",
+    "#F9A825",
+    "#757575",
+    "#5E35B1",
+    "#00838F",
+    "#6D4C41"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#212121",
+  "tableAccent": "#1E3A5F",
+  "good": "#2E7D32",
+  "neutral": "#F9A825",
+  "bad": "#C62828",
+  "maximum": "#1E3A5F",
+  "center": "#F9A825",
+  "minimum": "#C62828",
+  "null": "#E0E0E0",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI",
+      "fontSize": 18,
+      "color": "#1E3A5F"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 14,
+      "color": "#1E3A5F"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 11,
+      "color": "#212121"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 32,
+      "color": "#1E3A5F"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#E0E0E0" } },
+            "radius": 4
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#1E3A5F" } },
+            "fontFamily": "Segoe UI Semibold",
+            "fontSize": 14,
+            "alignment": "left"
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "categoryLabels": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#757575" } },
+            "fontFamily": "Segoe UI",
+            "fontSize": 11
+          }
+        ],
+        "labels": [
+          {
+            "color": { "solid": { "color": "#1E3A5F" } },
+            "fontFamily": "Segoe UI Semibold",
+            "fontSize": 32
+          }
+        ]
+      }
+    },
+    "barChart": {
+      "*": {
+        "dataPoint": [
+          { "defaultColor": { "solid": { "color": "#1E3A5F" } } }
+        ],
+        "legend": [
+          {
+            "show": true,
+            "position": "Top",
+            "fontFamily": "Segoe UI",
+            "labelColor": { "solid": { "color": "#212121" } }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "showAxisTitle": false,
+            "gridlineColor": { "solid": { "color": "#E0E0E0" } }
+          }
+        ],
+        "valueAxis": [
+          {
+            "showAxisTitle": false,
+            "gridlineColor": { "solid": { "color": "#E0E0E0" } }
+          }
+        ]
+      }
+    },
+    "columnChart": {
+      "*": {
+        "dataPoint": [
+          { "defaultColor": { "solid": { "color": "#1E3A5F" } } }
+        ]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "dataPoint": [
+          { "defaultColor": { "solid": { "color": "#F57C00" } } }
+        ],
+        "lineStyles": [
+          { "strokeWidth": 3, "showMarker": true }
+        ]
+      }
+    },
+    "donutChart": {
+      "*": {
+        "labels": [
+          { "fontFamily": "Segoe UI", "fontSize": 10 }
+        ]
+      }
+    },
+    "map": {
+      "*": {
+        "mapStyles": [
+          { "mapTheme": "grayscale" }
+        ]
+      }
+    },
+    "azureMap": {
+      "*": {
+        "mapControls": [
+          { "autoZoom": true, "zoomControl": true }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "header": [
+          {
+            "background": { "solid": { "color": "#1E3A5F" } },
+            "fontColor": { "solid": { "color": "#FFFFFF" } },
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "grid": [
+          {
+            "gridHorizontal": true,
+            "gridVertical": false,
+            "gridHorizontalColor": { "solid": { "color": "#E0E0E0" } }
+          }
+        ],
+        "columnHeaders": [
+          {
+            "backColor": { "solid": { "color": "#1E3A5F" } },
+            "fontColor": { "solid": { "color": "#FFFFFF" } },
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ]
+      }
+    },
+    "pivotTable": {
+      "*": {
+        "columnHeaders": [
+          {
+            "backColor": { "solid": { "color": "#1E3A5F" } },
+            "fontColor": { "solid": { "color": "#FFFFFF" } }
+          }
+        ]
+      }
+    },
+    "funnel": {
+      "*": {
+        "dataPoint": [
+          { "defaultColor": { "solid": { "color": "#1E3A5F" } } }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#F5F5F5" } },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}
