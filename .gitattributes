@@ -1,0 +1,44 @@
+# ============================================
+# Normalização automática de line endings
+# ============================================
+* text=auto
+
+# ============================================
+# LF para arquivos "de servidor" e código
+# ============================================
+*.sh     text eol=lf
+*.py     text eol=lf
+*.sql    text eol=lf
+*.md     text eol=lf
+*.json   text eol=lf
+*.yaml   text eol=lf
+*.yml    text eol=lf
+*.xml    text eol=lf
+*.html   text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+
+# ============================================
+# CRLF para scripts Windows nativos
+# ============================================
+*.bat    text eol=crlf
+*.ps1    text eol=crlf
+
+# ============================================
+# Arquivos binários (sem diff textual, sem conversão)
+# ============================================
+*.pdf    binary
+*.pbix   binary
+*.pbit   binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.svg    binary
+*.dmd    binary
+*.xlsx   binary
+*.docx   binary
+*.pptx   binary
+*.zip    binary
+*.7z     binary
+*.rar    binary
