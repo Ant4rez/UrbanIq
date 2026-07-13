@@ -376,8 +376,6 @@ UrbanIQ/
 ## Autor
 
 **Thiago Fiel de Oliveira**
-Data Science · FIAP · Turma 1TSCO
-Grupo **DataGuy**
 
 ---
 
