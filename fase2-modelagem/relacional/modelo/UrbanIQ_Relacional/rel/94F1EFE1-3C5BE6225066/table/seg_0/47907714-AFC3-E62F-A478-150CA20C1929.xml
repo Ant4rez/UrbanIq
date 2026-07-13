@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="47907714-AFC3-E62F-A478-150CA20C1929" name="T_URB_AVALIACAO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Avaliações dos cidadãos sobre o atendimento recebido]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>0B604D53-F9EC-B395-E6C9-D62515EFDAFB</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NR_AVALIACAO" id="871A9439-CCE3-E2F6-0D7A-8D57FA48F6D4">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único da avaliação]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>31BD7D55-AAD5-5D0C-378E-431691C9AA0E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NR_CHAMADO" id="9A651441-7696-B21A-C956-477D71F991FF">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[FK - chamado avaliado (apenas status RESOLVIDO ou ENCERRADO)]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>255D57D7-EAD8-E823-3E9A-5E538125A4A9</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6CA7FEB5-0390-6DB9-BB94-EC58787DA534" referredColumn="B508A10C-E98E-7CA7-83DD-18CA207A5421"/>
+</associations>
+</Column>
+<Column name="ID_CIDADAO" id="3508521D-5AF8-F6B9-E440-0B91DDB28895">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[FK - cidadão que realizou a avaliação]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>E8EADC53-ABF4-498E-BEA5-F9DAFA0CCC99</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0D1F85E0-2828-9A87-CBB2-6A7F421FEA48" referredColumn="BCB76E00-8F54-B635-B82A-F3C78967B397"/>
+</associations>
+</Column>
+<Column name="NR_NOTA" id="3B0F4B1F-9477-6CF7-30A4-DD57766997C1">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nota de satisfação de 1 (péssimo) a 5 (excelente)]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>4C008FEE-0E61-0404-1729-EDA5650D9E91</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DB12145E-3849-1E1B-32FA-CA73CBBFCBF6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_COMENTARIO" id="54EAA61F-CC6B-EC09-A666-333A78B43DCE">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Comentário opcional do cidadão sobre o atendimento]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>CD903974-8271-1A38-F3D2-D0B5A0C946A1</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CDC97073-95F4-D8E8-8402-15A6948AA9A8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DT_AVALIACAO" id="B9DAC4FA-0761-98D7-1481-9419FA27FDD8">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Data e hora em que a avaliação foi registrada]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>52C40AF3-723D-02D7-4C4D-36B2E8332D53</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>9554230A-6E97-E636-0377-B92AC2C357E3</domain>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4F9407AD-947E-F7E3-678A-2D1F292EF400" name="PK_T_URB_AVALIACAO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>587166B5-BCDB-84E9-D919-741E50044721</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="871A9439-CCE3-E2F6-0D7A-8D57FA48F6D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D4F44E6E-D7B0-EE4F-6206-4340475ACCF5" name="UK_URB_AVAL_CHAMADO_CID">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>903E2708-4ED4-E224-58F2-860448DD55FA</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A651441-7696-B21A-C956-477D71F991FF"/>
+<colUsage columnID="3508521D-5AF8-F6B9-E440-0B91DDB28895"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EDFAE066-A896-594F-883A-6BB1C0EDD5F8" name="FK_URB_AVAL_CHAMADO">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A651441-7696-B21A-C956-477D71F991FF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="867BB6FC-9D08-8579-D81F-0F498A91C8D8" name="FK_URB_AVAL_CIDADAO">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3508521D-5AF8-F6B9-E440-0B91DDB28895"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="CK_URB_AVAL_NOTA" directorySegmentName="seg_0" id="30BA8FF7-6C0F-13ED-BBD7-EC57E54E7B98">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>80C824FE-7363-DDB7-3BE5-1060FDA5006A</importedID>
+<rule><![CDATA[NR_NOTA BETWEEN 1 AND 5]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

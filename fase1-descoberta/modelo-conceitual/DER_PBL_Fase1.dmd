@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="DER_PBL_Fase1" id="24BE8ED4-F46F-70BA-D601-FC1B8C25BC96" version="3.5">
+<createdBy>thfie</createdBy>
+<createdTime>2026-03-31 23:59:45 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>24BE8ED4-F46F-70BA-D601-FC1B8C25BC96</designId>
+</OSDM_Design>

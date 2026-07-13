@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="UrbanIQ_Relacional" id="25EB19B7-97C3-E8FE-94E2-D005BBA95D3B" version="3.5">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:18:14 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>25EB19B7-97C3-E8FE-94E2-D005BBA95D3B</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="FEB4F236-118D-5B6F-6280-68CFA2C6AB57">
+<designStoragePath>C:\urbaniq_ddl</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1CB3C1A0-2767-8E2E-E28E-E1AC58CB7E28" name="Tipo_Problema">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:14:52 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_tipo_problema" id="7DF5397C-353B-D5AE-4B1D-780241094769">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:15:10 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nome_tipo" id="992A6D97-4B83-75B5-D83A-9A07E36DBB12">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:15:11 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descricao_tipo" id="4F1447FA-E458-28BC-6C14-D3023D6B3B6D">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:15:11 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DCCD18B7-2ACA-200C-1ECA-0B0E1CF309FA" name="Tipo_Problema PK">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:15:21 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7DF5397C-353B-D5AE-4B1D-780241094769</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

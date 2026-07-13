@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="T_URB_CHAMADO" directorySegmentName="seg_0" id="DC401D1E-AF38-60C0-55E0-BF1641EF0F15">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ID_SUBCATEGORIA" id="10F286D8-37F3-4068-F9FC-C828956CF927">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DS_CHAMADO" id="213B747F-B128-0E28-4DED-C5AC9B8F8EBF">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ST_CHAMADO" id="33A59F9B-751B-B928-18B3-8FBD2D362F61">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<defaultValue>&apos;ABERTO&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="ID_CIDADAO" id="393515FF-3A24-78EC-FC1A-C4323C635F54">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DT_ABERTURA" id="614DDE70-A377-7524-C26F-ED7C3AE36D21">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<defaultValue>SYSDATE</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="NR_SCORE_PRIORIDADE" id="A7CA2CB5-1F55-B56F-32AA-6A5AF8826B60">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="NR_CHAMADO" id="B508A10C-E98E-7CA7-83DD-18CA207A5421">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_LOGRADOURO" id="DC9BC97D-99AE-303E-EBE6-13CA132E1A76">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="IDX_URB_CHAMADO_CIDADAO" id="87E9F4D3-9B42-E31C-D739-B37D657B728A">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="IDX_URB_CHAMADO_LOGR" id="94AD823D-6F39-656C-0038-D0CCC74E69BD">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="IDX_URB_CHAMADO_STATUS" id="C99650CE-B6AD-946C-3ED9-33BE25C7672B">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_URB_CHAM_CIDADAO" id="314AD72C-C80B-636F-8179-FE53357FE618">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_URB_CHAM_LOGRADOURO" id="36E1E09A-EE8A-F25B-EF65-E3775DAA0382">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_URB_CHAM_SUBCATEG" id="44F7A6EE-F96B-A490-F276-553CA4282458">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_T_URB_CHAMADO" id="7288C951-A80E-877C-8788-12365C26CFD0">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="CK_URB_CHAM_STATUS" id="00050443-3C17-6480-142E-B16A3DE226AC">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+<TableCheckConstraint name="CK_URB_CHAM_SCORE" id="0CA309E6-30DE-16F3-8CC1-895315B8586C">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+</tableCheckConstraints>
+</TableProxyOraclev20c>

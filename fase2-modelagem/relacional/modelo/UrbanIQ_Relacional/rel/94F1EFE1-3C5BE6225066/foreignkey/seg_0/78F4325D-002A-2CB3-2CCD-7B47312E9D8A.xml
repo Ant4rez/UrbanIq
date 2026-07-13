@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="78F4325D-002A-2CB3-2CCD-7B47312E9D8A" containerWithKeyObject="DF932645-43CF-E094-1999-3A31D3580208" localFKIndex="8C409E9C-2A45-49F1-4D1E-A3AEB06347DC" name="FK_URB_ESTADO_CIDADE">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>0D1B2998-63DC-E55B-D780-2679DFA461B5</importedID>
+<referredTableLongName>T_URB_ESTADO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>11059664-5818-97B7-B07C-EECE4933368E</referredTableID>
+<keyObject>E0B8F993-1053-9508-413A-2470B67C1713</keyObject>
+<referredKeyID>E0B8F993-1053-9508-413A-2470B67C1713</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_ESTADO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

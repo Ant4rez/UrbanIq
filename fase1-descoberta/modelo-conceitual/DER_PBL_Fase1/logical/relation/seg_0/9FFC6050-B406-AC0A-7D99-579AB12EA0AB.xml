@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="localiza" directorySegmentName="seg_0" id="9FFC6050-B406-AC0A-7D99-579AB12EA0AB">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:38:23 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<sourcePk>C072C3A3-CAFA-1E21-6D4C-DD9C392B0F5E</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4CBF8167-663D-F379-1C88-42C9558403E9</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>932BF7BE-2F9C-F8C6-162C-7454AD1D03CE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

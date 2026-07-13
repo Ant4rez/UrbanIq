@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="87D91D9C-C1AB-096A-DA01-E058B09EDE78" containerWithKeyObject="DC401D1E-AF38-60C0-55E0-BF1641EF0F15" localFKIndex="314AD72C-C80B-636F-8179-FE53357FE618" name="FK_URB_CHAM_CIDADAO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>F217C3EB-6965-7490-5151-DBB8C80B9D62</importedID>
+<referredTableLongName>T_URB_CIDADAO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DCE39269-F36A-B965-F6FD-1DE198396C10</referredTableID>
+<keyObject>A7DFFD41-2479-0D5C-97A8-176B836E635F</keyObject>
+<referredKeyID>A7DFFD41-2479-0D5C-97A8-176B836E635F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_CIDADAO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

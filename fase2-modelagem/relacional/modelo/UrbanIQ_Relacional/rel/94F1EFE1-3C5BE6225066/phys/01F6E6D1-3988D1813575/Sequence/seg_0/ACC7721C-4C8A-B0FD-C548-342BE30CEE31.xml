@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="SQ_URB_BAIRRO" directorySegmentName="seg_0" id="ACC7721C-4C8A-B0FD-C548-342BE30CEE31">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:28:14 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<incrementBy>1</incrementBy>
+<noCache>YES</noCache>
+<startWith>1</startWith>
+</SequenceOraclev10g>

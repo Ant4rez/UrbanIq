@@ -1,0 +1,25 @@
+ID_SUBCATEGORIA,ID_CATEGORIA,NM_SUBCATEGORIA,NR_PRIORIDADE_BASE,ST_ATIVO
+1,1,Buraco na via pública,5,S
+2,1,Calçada danificada ou irregular,3,S
+3,1,Poste inclinado ou tombado na via,4,S
+4,2,Poste de luz apagado,4,S
+5,2,Lâmpada com defeito ou piscando,2,S
+6,2,Cabo elétrico exposto na via pública,5,S
+7,3,Acúmulo de lixo em via pública,3,S
+8,3,Entulho descartado irregularmente,3,S
+9,3,Pichação em bem público,1,S
+10,4,Foco de dengue ou mosquito Aedes,5,S
+11,4,Esgoto a céu aberto,5,S
+12,4,Animal morto em via pública,4,S
+13,5,Ponto de ônibus danificado,2,S
+14,5,Abrigo sem cobertura ou assento,2,S
+15,5,Faixa de pedestres apagada,3,S
+16,6,Câmera de segurança danificada,4,S
+17,6,Semáforo com defeito ou apagado,5,S
+18,6,Placa de trânsito ausente ou tombada,3,S
+19,7,Árvore com risco de queda,5,S
+20,7,Praça pública degradada,2,S
+21,7,Poluição em córrego urbano,4,S
+22,8,Bueiro entupido ou transbordando,4,S
+23,8,Sinalização vertical ausente,3,S
+24,8,Pavimentação deteriorada em área pública,2,S

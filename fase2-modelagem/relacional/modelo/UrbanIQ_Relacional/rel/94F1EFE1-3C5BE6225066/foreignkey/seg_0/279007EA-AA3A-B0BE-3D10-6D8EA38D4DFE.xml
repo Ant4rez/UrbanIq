@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="279007EA-AA3A-B0BE-3D10-6D8EA38D4DFE" containerWithKeyObject="EC5D12DB-4CDB-6C41-1E9E-5CC1F4C2F134" localFKIndex="6DEA9C73-D1BD-734D-7C60-926397E32D07" name="FK_URB_ATEND_CHAMADO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>E98A8FBE-C6D4-B489-7376-D7EEC705F349</importedID>
+<referredTableLongName>T_URB_CHAMADO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DC401D1E-AF38-60C0-55E0-BF1641EF0F15</referredTableID>
+<keyObject>7288C951-A80E-877C-8788-12365C26CFD0</keyObject>
+<referredKeyID>7288C951-A80E-877C-8788-12365C26CFD0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>NR_CHAMADO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

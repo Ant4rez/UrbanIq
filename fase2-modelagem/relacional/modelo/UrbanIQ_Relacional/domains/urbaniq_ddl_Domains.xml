@@ -1,0 +1,244 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="urbaniq_ddl_Domains">
+<domains>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_20" id="033DE3A2-46AF-FF2A-33FE-9A888106F246">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>20</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="CHAR_0_0_2" id="04A6D546-E851-9D55-286A-1EDCB0F9163E">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>2</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT025</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_80" id="10670E37-CE9D-2341-5B02-D56C385ED60A">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>80</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_500" id="230F616A-CE2C-04BB-0E11-9FC8ACDF503D">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>500</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_30" id="25FD36B6-5C80-F7BA-AA67-0F2386FCF71D">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>30</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_8_0_0" id="3B0B99C1-F93C-7CFC-D5A0-142631CEB89A">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_11_0_0" id="3CE28FD4-115C-089C-2188-017B5DE9AB5C">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>11</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_100" id="3D7A360E-7B62-E7F8-6A57-F8AFD932BB01">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>100</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_10" id="4524104F-6E2D-C5BF-AC1F-F9AAC324049B">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>10</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_50" id="780B712F-D25C-A628-D7FB-D221F210DC4C">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>50</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_25" id="7FAA5D73-335E-54BD-6E9A-425EA9315D34">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>25</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_15_0_0" id="84475EA8-CE47-D0D9-B31F-00976880AFFA">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>15</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_60" id="8DF097F2-25E7-95F3-E519-FF4BB1030BF8">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>60</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_200" id="8FD35089-6704-F22F-A86E-9BFC1B5DFA6D">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>200</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="9554230A-6E97-E636-0377-B92AC2C357E3">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_40" id="95A39A22-963B-D9C7-7A82-792CE89907D4">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>40</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_3_0_0" id="C2E8B66E-F95D-3042-6EAD-73A907820C95">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_400" id="CDC97073-95F4-D8E8-8402-15A6948AA9A8">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>400</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_1_0_0" id="DB12145E-3849-1E1B-32FA-CA73CBBFCBF6">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>1</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_10_0_0" id="E7F66238-0B43-0456-AB77-CC21EFBDFF4C">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="CHAR_0_0_1" id="F0337C54-F257-B883-F0BA-FCA8D3DC1F75">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>1</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT025</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_120" id="F558A9AC-426F-F98C-0A05-A2DDB15A34BA">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>120</dataTypeSize>
+<fileName>urbaniq_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+</domains>
+</DomainFile>

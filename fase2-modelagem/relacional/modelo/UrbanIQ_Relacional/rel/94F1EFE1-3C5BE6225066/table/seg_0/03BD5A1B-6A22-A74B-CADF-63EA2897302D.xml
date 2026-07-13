@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="03BD5A1B-6A22-A74B-CADF-63EA2897302D" name="T_URB_GESTOR">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Gestores públicos responsáveis pelo atendimento de chamados]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>D1F83234-B014-420D-31A7-5DED47541E0F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_GESTOR" id="57111D34-C2BC-0F6C-03A5-03A148668513">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único do gestor]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>9108ABD8-7ACD-08C8-B9E7-9F556CE7199A</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_EQUIPE" id="6491EE2E-29B2-59E8-4214-F90C3F3D7C81">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[FK - equipe à qual o gestor pertence (um gestor, uma equipe)]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>F61A6571-F34B-ABC9-243F-027E3DF90ADB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="80AFBA3E-FF08-DC96-CA8C-50DB9C3D4FFF" referredColumn="E9F3422B-899F-FD1F-D24D-BE8DE7371782"/>
+</associations>
+</Column>
+<Column name="NM_GESTOR" id="871DBE11-928B-896C-A61E-3C90BCAC8193">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nome completo do gestor]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>E1A807B1-AB1F-259F-F84D-0948F135F484</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3D7A360E-7B62-E7F8-6A57-F8AFD932BB01</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NR_MATRICULA" id="13F956B0-F754-550F-A2E9-1301C3A6FF91">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Matrícula funcional única do servidor público]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>0694FB60-4FBA-3F48-FE70-7307DA525317</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>033DE3A2-46AF-FF2A-33FE-9A888106F246</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_CARGO" id="B1E31446-0DDE-7ECE-CEBC-CA9DCC573419">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Cargo do gestor na prefeitura]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>FC876182-6B25-3F42-C96B-992DDC5081A2</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8DF097F2-25E7-95F3-E519-FF4BB1030BF8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NR_TELEFONE" id="190B5F86-46BD-1530-464B-26D3827403AD">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Telefone de contato do gestor]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>653F49A4-2353-64D6-917B-675BF56EE992</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>25FD36B6-5C80-F7BA-AA67-0F2386FCF71D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5E681B0B-0DD8-437E-05AF-467722A01A4C" name="PK_T_URB_GESTOR">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>EACD4AC9-059C-1776-D75D-BE034423BAC6</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57111D34-C2BC-0F6C-03A5-03A148668513"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="03FAC22D-E067-F20C-7D57-D6A24774FB51" name="UK_URB_GESTOR_MATRICULA">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>78ABD956-7934-AE60-D096-81CBA2B3A2EF</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="13F956B0-F754-550F-A2E9-1301C3A6FF91"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="78653736-C527-03A2-22D2-7A30F2958D3C" name="FK_URB_GESTOR_EQUIPE">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6491EE2E-29B2-59E8-4214-F90C3F3D7C81"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

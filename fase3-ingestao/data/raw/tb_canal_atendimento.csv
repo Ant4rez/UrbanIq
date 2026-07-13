@@ -1,0 +1,6 @@
+ID_CANAL,NM_CANAL,DS_CANAL,ST_ATIVO
+1,APP_MOBILE,Aplicativo móvel do cidadão (iOS/Android),S
+2,PORTAL_WEB,Portal web da prefeitura,S
+3,TELEFONE,Central telefônica 156,S
+4,SENSOR_IOT,Sensor IoT urbano (detecção automática),S
+5,CAMERA_HD,Câmera de monitoramento urbano (visão computacional),S

@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A13CD76C-8245-9CE1-73E3-12058F08F2A6" name="Status_Chamado">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:15:49 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_status" id="2763529B-8C7D-985E-CD28-F49DC10F4F64">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:16:01 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nome_status" id="20B443D3-A383-5911-AB6A-4A45005ACF94">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:16:01 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descricao_status" id="0DA1BAAD-5831-7468-0E2D-F1C1845755AD">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:16:03 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A3559355-D030-A507-7D20-6A2F3FB99F64" name="Status_Chamado PK">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:16:13 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2763529B-8C7D-985E-CD28-F49DC10F4F64</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

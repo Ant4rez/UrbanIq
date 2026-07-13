@@ -1,0 +1,396 @@
+-- ============================================================
+-- PROJETO FÍSICO DE BANCO DE DADOS
+-- Sistema: UrbanIQ - Plataforma de Gestão de Chamados Urbanos
+-- Aluno:   Thiago Fiel de Oliveira | RM 570088
+-- Curso:   Data Science - FIAP | Fase 2
+-- ============================================================
+
+-- ============================================================
+-- SEQUENCES (gerador de PKs automáticas)
+-- ============================================================
+
+CREATE SEQUENCE SQ_URB_ESTADO      START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_CIDADE      START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_BAIRRO      START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_LOGRADOURO  START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_CIDADAO     START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_CATEGORIA   START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_SUBCATEG    START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_CHAMADO     START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_HISTORICO   START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_EQUIPE      START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_GESTOR      START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_ATENDIMENTO START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_AVALIACAO   START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE SQ_URB_MIDIA       START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+
+-- ============================================================
+-- BLOCO 1: NORMALIZAÇÃO DE ENDEREÇOS (RN01 + RN02)
+-- ============================================================
+
+-- Tabela: T_URB_ESTADO
+CREATE TABLE T_URB_ESTADO (
+    ID_ESTADO   NUMBER(10)    NOT NULL,
+    SG_ESTADO   CHAR(2)       NOT NULL,
+    NM_ESTADO   VARCHAR2(40)  NOT NULL,
+    CONSTRAINT PK_T_URB_ESTADO PRIMARY KEY (ID_ESTADO)
+);
+
+COMMENT ON TABLE  T_URB_ESTADO            IS 'Estados brasileiros - tabela de domínio geográfico';
+COMMENT ON COLUMN T_URB_ESTADO.ID_ESTADO  IS 'Identificador único do estado';
+COMMENT ON COLUMN T_URB_ESTADO.SG_ESTADO  IS 'Sigla do estado (ex: SP, RJ, MG)';
+COMMENT ON COLUMN T_URB_ESTADO.NM_ESTADO  IS 'Nome completo do estado';
+
+-- Tabela: T_URB_CIDADE
+CREATE TABLE T_URB_CIDADE (
+    ID_CIDADE   NUMBER(10)    NOT NULL,
+    ID_ESTADO   NUMBER(10)    NOT NULL,
+    NM_CIDADE   VARCHAR2(60)  NOT NULL,
+    CONSTRAINT PK_T_URB_CIDADE         PRIMARY KEY (ID_CIDADE),
+    CONSTRAINT FK_URB_ESTADO_CIDADE    FOREIGN KEY (ID_ESTADO)
+        REFERENCES T_URB_ESTADO (ID_ESTADO)
+);
+
+COMMENT ON TABLE  T_URB_CIDADE           IS 'Cidades vinculadas a estados';
+COMMENT ON COLUMN T_URB_CIDADE.ID_CIDADE IS 'Identificador único da cidade';
+COMMENT ON COLUMN T_URB_CIDADE.ID_ESTADO IS 'FK - estado ao qual a cidade pertence';
+COMMENT ON COLUMN T_URB_CIDADE.NM_CIDADE IS 'Nome completo da cidade';
+
+-- Tabela: T_URB_BAIRRO
+CREATE TABLE T_URB_BAIRRO (
+    ID_BAIRRO      NUMBER(10)    NOT NULL,
+    ID_CIDADE      NUMBER(10)    NOT NULL,
+    NM_BAIRRO      VARCHAR2(60)  NOT NULL,
+    NM_ZONA_BAIRRO VARCHAR2(30),
+    CONSTRAINT PK_T_URB_BAIRRO      PRIMARY KEY (ID_BAIRRO),
+    CONSTRAINT FK_URB_CIDADE_BAIRRO FOREIGN KEY (ID_CIDADE)
+        REFERENCES T_URB_CIDADE (ID_CIDADE)
+);
+
+COMMENT ON TABLE  T_URB_BAIRRO                IS 'Bairros vinculados a cidades';
+COMMENT ON COLUMN T_URB_BAIRRO.ID_BAIRRO      IS 'Identificador único do bairro';
+COMMENT ON COLUMN T_URB_BAIRRO.ID_CIDADE      IS 'FK - cidade à qual o bairro pertence';
+COMMENT ON COLUMN T_URB_BAIRRO.NM_BAIRRO      IS 'Nome do bairro';
+COMMENT ON COLUMN T_URB_BAIRRO.NM_ZONA_BAIRRO IS 'Zona administrativa (ex: Norte, Sul, Centro)';
+
+-- Tabela: T_URB_LOGRADOURO
+CREATE TABLE T_URB_LOGRADOURO (
+    ID_LOGRADOURO  NUMBER(10)    NOT NULL,
+    ID_BAIRRO      NUMBER(10)    NOT NULL,
+    NM_LOGRADOURO  VARCHAR2(120) NOT NULL,
+    DS_COMPLEMENTO VARCHAR2(50),
+    NR_CEP         NUMBER(8)     NOT NULL,
+    CONSTRAINT PK_T_URB_LOGRADOURO      PRIMARY KEY (ID_LOGRADOURO),
+    CONSTRAINT FK_URB_BAIRRO_LOGRADOURO FOREIGN KEY (ID_BAIRRO)
+        REFERENCES T_URB_BAIRRO (ID_BAIRRO)
+);
+
+COMMENT ON TABLE  T_URB_LOGRADOURO                IS 'Logradouros (ruas, avenidas, praças) vinculados a bairros';
+COMMENT ON COLUMN T_URB_LOGRADOURO.ID_LOGRADOURO  IS 'Identificador único do logradouro';
+COMMENT ON COLUMN T_URB_LOGRADOURO.ID_BAIRRO      IS 'FK - bairro ao qual o logradouro pertence';
+COMMENT ON COLUMN T_URB_LOGRADOURO.NM_LOGRADOURO  IS 'Nome do logradouro (ex: Av. Paulista)';
+COMMENT ON COLUMN T_URB_LOGRADOURO.DS_COMPLEMENTO IS 'Complemento de endereço (ex: apto 42, bloco B)';
+COMMENT ON COLUMN T_URB_LOGRADOURO.NR_CEP         IS 'CEP numérico sem hífen (ex: 01310100)';
+
+-- ============================================================
+-- BLOCO 2: CIDADÃO (RN01)
+-- ============================================================
+
+-- Tabela: T_URB_CIDADAO
+CREATE TABLE T_URB_CIDADAO (
+    ID_CIDADAO     NUMBER(10)    NOT NULL,
+    NR_CPF_CIDADAO NUMBER(11)    NOT NULL,
+    NM_CIDADAO     VARCHAR2(100) NOT NULL,
+    NR_TELEFONE    VARCHAR2(30)  NOT NULL,
+    DS_EMAIL       VARCHAR2(100) NOT NULL,
+    DT_NASCIMENTO  DATE,
+    CONSTRAINT PK_T_URB_CIDADAO PRIMARY KEY (ID_CIDADAO),
+    CONSTRAINT UK_URB_CPF_CIDADAO UNIQUE (NR_CPF_CIDADAO)
+);
+
+COMMENT ON TABLE  T_URB_CIDADAO                IS 'Cidadãos cadastrados na plataforma UrbanIQ';
+COMMENT ON COLUMN T_URB_CIDADAO.ID_CIDADAO     IS 'Identificador único do cidadão';
+COMMENT ON COLUMN T_URB_CIDADAO.NR_CPF_CIDADAO IS 'CPF do cidadão - deve ser válido e único no sistema';
+COMMENT ON COLUMN T_URB_CIDADAO.NM_CIDADAO     IS 'Nome completo do cidadão';
+COMMENT ON COLUMN T_URB_CIDADAO.NR_TELEFONE    IS 'Telefone com DDD (ex: 11987654321)';
+COMMENT ON COLUMN T_URB_CIDADAO.DS_EMAIL       IS 'E-mail para comunicações da plataforma';
+COMMENT ON COLUMN T_URB_CIDADAO.DT_NASCIMENTO  IS 'Data de nascimento para validação de perfil';
+
+-- Tabela: T_URB_CIDADAO_LOGRADOURO (relacionamento N:N - RN01)
+CREATE TABLE T_URB_CIDADAO_LOGRADOURO (
+    ID_CIDADAO     NUMBER(10)    NOT NULL,
+    ID_LOGRADOURO  NUMBER(10)    NOT NULL,
+    DT_INICIO      DATE          NOT NULL,
+    DT_FIM         DATE,
+    TP_ENDERECO    VARCHAR2(25)  NOT NULL,
+    CONSTRAINT PK_T_URB_CID_LOGR        PRIMARY KEY (ID_CIDADAO, ID_LOGRADOURO),
+    CONSTRAINT FK_URB_CID_CIDADAO       FOREIGN KEY (ID_CIDADAO)
+        REFERENCES T_URB_CIDADAO (ID_CIDADAO),
+    CONSTRAINT FK_URB_CID_LOGRADOURO    FOREIGN KEY (ID_LOGRADOURO)
+        REFERENCES T_URB_LOGRADOURO (ID_LOGRADOURO),
+    CONSTRAINT CK_URB_TP_ENDERECO       CHECK (TP_ENDERECO IN ('RESIDENCIAL','COMERCIAL','CORRESPONDENCIA','OUTRO'))
+);
+
+COMMENT ON TABLE  T_URB_CIDADAO_LOGRADOURO              IS 'Vínculo entre cidadãos e logradouros - histórico de endereços';
+COMMENT ON COLUMN T_URB_CIDADAO_LOGRADOURO.ID_CIDADAO   IS 'FK - cidadão proprietário do endereço';
+COMMENT ON COLUMN T_URB_CIDADAO_LOGRADOURO.ID_LOGRADOURO IS 'FK - logradouro vinculado ao cidadão';
+COMMENT ON COLUMN T_URB_CIDADAO_LOGRADOURO.DT_INICIO    IS 'Data de início do vínculo com o endereço';
+COMMENT ON COLUMN T_URB_CIDADAO_LOGRADOURO.DT_FIM       IS 'Data de encerramento do vínculo (null = endereço ativo)';
+COMMENT ON COLUMN T_URB_CIDADAO_LOGRADOURO.TP_ENDERECO  IS 'Tipo do endereço: RESIDENCIAL, COMERCIAL, CORRESPONDENCIA, OUTRO';
+
+-- ============================================================
+-- BLOCO 3: CLASSIFICAÇÃO DE CHAMADOS (RN02)
+-- ============================================================
+
+-- Tabela: T_URB_CATEGORIA
+CREATE TABLE T_URB_CATEGORIA (
+    ID_CATEGORIA   NUMBER(10)    NOT NULL,
+    NM_CATEGORIA   VARCHAR2(80)  NOT NULL,
+    DS_CATEGORIA   VARCHAR2(200),
+    ST_ATIVO       CHAR(1)       DEFAULT 'S' NOT NULL,
+    CONSTRAINT PK_T_URB_CATEGORIA PRIMARY KEY (ID_CATEGORIA),
+    CONSTRAINT CK_URB_CAT_ST_ATIVO CHECK (ST_ATIVO IN ('S','N'))
+);
+
+COMMENT ON TABLE  T_URB_CATEGORIA              IS 'Categorias principais de chamados urbanos';
+COMMENT ON COLUMN T_URB_CATEGORIA.ID_CATEGORIA IS 'Identificador único da categoria';
+COMMENT ON COLUMN T_URB_CATEGORIA.NM_CATEGORIA IS 'Nome da categoria (ex: Infraestrutura, Iluminação, Limpeza)';
+COMMENT ON COLUMN T_URB_CATEGORIA.DS_CATEGORIA IS 'Descrição detalhada da categoria';
+COMMENT ON COLUMN T_URB_CATEGORIA.ST_ATIVO     IS 'Status: S=ativa, N=inativa (categorias inativas não aceitam chamados)';
+
+-- Tabela: T_URB_SUBCATEGORIA
+CREATE TABLE T_URB_SUBCATEGORIA (
+    ID_SUBCATEGORIA   NUMBER(10)    NOT NULL,
+    ID_CATEGORIA      NUMBER(10)    NOT NULL,
+    NM_SUBCATEGORIA   VARCHAR2(100) NOT NULL,
+    NR_PRIORIDADE_BASE NUMBER(1)    NOT NULL,
+    ST_ATIVO          CHAR(1)       DEFAULT 'S' NOT NULL,
+    CONSTRAINT PK_T_URB_SUBCATEGORIA      PRIMARY KEY (ID_SUBCATEGORIA),
+    CONSTRAINT FK_URB_CAT_SUBCATEG        FOREIGN KEY (ID_CATEGORIA)
+        REFERENCES T_URB_CATEGORIA (ID_CATEGORIA),
+    CONSTRAINT CK_URB_PRIOR_BASE          CHECK (NR_PRIORIDADE_BASE BETWEEN 1 AND 5),
+    CONSTRAINT CK_URB_SUBCAT_ST_ATIVO     CHECK (ST_ATIVO IN ('S','N'))
+);
+
+COMMENT ON TABLE  T_URB_SUBCATEGORIA                    IS 'Subcategorias de chamados vinculadas a uma categoria principal';
+COMMENT ON COLUMN T_URB_SUBCATEGORIA.ID_SUBCATEGORIA    IS 'Identificador único da subcategoria';
+COMMENT ON COLUMN T_URB_SUBCATEGORIA.ID_CATEGORIA       IS 'FK - categoria principal à qual pertence';
+COMMENT ON COLUMN T_URB_SUBCATEGORIA.NM_SUBCATEGORIA    IS 'Nome da subcategoria (ex: Buraco na via, Poste apagado)';
+COMMENT ON COLUMN T_URB_SUBCATEGORIA.NR_PRIORIDADE_BASE IS 'Prioridade base de 1 (menor) a 5 (maior urgência)';
+COMMENT ON COLUMN T_URB_SUBCATEGORIA.ST_ATIVO           IS 'Status: S=ativa, N=inativa';
+
+-- ============================================================
+-- BLOCO 4: CHAMADO URBANO
+-- ============================================================
+
+-- Tabela: T_URB_CHAMADO
+CREATE TABLE T_URB_CHAMADO (
+    NR_CHAMADO          NUMBER(10)    NOT NULL,
+    ID_CIDADAO          NUMBER(10)    NOT NULL,
+    ID_LOGRADOURO       NUMBER(10)    NOT NULL,
+    ID_SUBCATEGORIA     NUMBER(10)    NOT NULL,
+    DT_ABERTURA         DATE          DEFAULT SYSDATE NOT NULL,
+    DS_CHAMADO          VARCHAR2(500) NOT NULL,
+    NR_SCORE_PRIORIDADE NUMBER(3)     DEFAULT 0 NOT NULL,
+    ST_CHAMADO          VARCHAR2(20)  DEFAULT 'ABERTO' NOT NULL,
+    CONSTRAINT PK_T_URB_CHAMADO         PRIMARY KEY (NR_CHAMADO),
+    CONSTRAINT FK_URB_CHAM_CIDADAO      FOREIGN KEY (ID_CIDADAO)
+        REFERENCES T_URB_CIDADAO (ID_CIDADAO),
+    CONSTRAINT FK_URB_CHAM_LOGRADOURO   FOREIGN KEY (ID_LOGRADOURO)
+        REFERENCES T_URB_LOGRADOURO (ID_LOGRADOURO),
+    CONSTRAINT FK_URB_CHAM_SUBCATEG     FOREIGN KEY (ID_SUBCATEGORIA)
+        REFERENCES T_URB_SUBCATEGORIA (ID_SUBCATEGORIA),
+    CONSTRAINT CK_URB_CHAM_STATUS       CHECK (ST_CHAMADO IN
+        ('ABERTO','EM_ANALISE','EM_ATENDIMENTO','RESOLVIDO','ENCERRADO')),
+    CONSTRAINT CK_URB_CHAM_SCORE        CHECK (NR_SCORE_PRIORIDADE BETWEEN 0 AND 100)
+);
+
+COMMENT ON TABLE  T_URB_CHAMADO                    IS 'Chamados urbanos abertos pelos cidadãos na plataforma UrbanIQ';
+COMMENT ON COLUMN T_URB_CHAMADO.NR_CHAMADO         IS 'Número único do chamado (protocolo)';
+COMMENT ON COLUMN T_URB_CHAMADO.ID_CIDADAO         IS 'FK - cidadão que abriu o chamado';
+COMMENT ON COLUMN T_URB_CHAMADO.ID_LOGRADOURO      IS 'FK - logradouro onde o problema foi identificado';
+COMMENT ON COLUMN T_URB_CHAMADO.ID_SUBCATEGORIA    IS 'FK - subcategoria que classifica o tipo do problema';
+COMMENT ON COLUMN T_URB_CHAMADO.DT_ABERTURA        IS 'Data e hora de abertura do chamado';
+COMMENT ON COLUMN T_URB_CHAMADO.DS_CHAMADO         IS 'Descrição detalhada do problema relatado pelo cidadão';
+COMMENT ON COLUMN T_URB_CHAMADO.NR_SCORE_PRIORIDADE IS 'Score calculado pelo algoritmo UrbanIQ (0-100)';
+COMMENT ON COLUMN T_URB_CHAMADO.ST_CHAMADO         IS 'Status atual: ABERTO, EM_ANALISE, EM_ATENDIMENTO, RESOLVIDO, ENCERRADO';
+
+-- ============================================================
+-- BLOCO 5: HISTÓRICO DE STATUS (RN03)
+-- ============================================================
+
+-- Tabela: T_URB_HISTORICO_STATUS
+CREATE TABLE T_URB_HISTORICO_STATUS (
+    NR_HISTORICO    NUMBER(10)    NOT NULL,
+    NR_CHAMADO      NUMBER(10)    NOT NULL,
+    ID_GESTOR       NUMBER(10),
+    DT_ATUALIZACAO  DATE          DEFAULT SYSDATE NOT NULL,
+    ST_ANTERIOR     VARCHAR2(20)  NOT NULL,
+    ST_NOVO         VARCHAR2(20)  NOT NULL,
+    DS_OBSERVACAO   VARCHAR2(400),
+    CONSTRAINT PK_T_URB_HISTORICO         PRIMARY KEY (NR_HISTORICO),
+    CONSTRAINT FK_URB_HIST_CHAMADO        FOREIGN KEY (NR_CHAMADO)
+        REFERENCES T_URB_CHAMADO (NR_CHAMADO),
+    CONSTRAINT CK_URB_HIST_ST_ANTERIOR    CHECK (ST_ANTERIOR IN
+        ('ABERTO','EM_ANALISE','EM_ATENDIMENTO','RESOLVIDO','ENCERRADO')),
+    CONSTRAINT CK_URB_HIST_ST_NOVO        CHECK (ST_NOVO IN
+        ('ABERTO','EM_ANALISE','EM_ATENDIMENTO','RESOLVIDO','ENCERRADO'))
+);
+
+COMMENT ON TABLE  T_URB_HISTORICO_STATUS              IS 'Histórico completo de mudanças de status dos chamados - base do Portal de Transparência';
+COMMENT ON COLUMN T_URB_HISTORICO_STATUS.NR_HISTORICO   IS 'Identificador único do registro de histórico';
+COMMENT ON COLUMN T_URB_HISTORICO_STATUS.NR_CHAMADO     IS 'FK - chamado ao qual o registro pertence';
+COMMENT ON COLUMN T_URB_HISTORICO_STATUS.ID_GESTOR      IS 'FK - gestor responsável pela mudança (null para atualizações automáticas)';
+COMMENT ON COLUMN T_URB_HISTORICO_STATUS.DT_ATUALIZACAO IS 'Data e hora exata da mudança de status';
+COMMENT ON COLUMN T_URB_HISTORICO_STATUS.ST_ANTERIOR    IS 'Status antes da mudança';
+COMMENT ON COLUMN T_URB_HISTORICO_STATUS.ST_NOVO        IS 'Status após a mudança';
+COMMENT ON COLUMN T_URB_HISTORICO_STATUS.DS_OBSERVACAO  IS 'Observação ou justificativa da mudança de status';
+
+-- ============================================================
+-- BLOCO 6: EQUIPE E GESTOR (RN04)
+-- ============================================================
+
+-- Tabela: T_URB_EQUIPE
+CREATE TABLE T_URB_EQUIPE (
+    ID_EQUIPE       NUMBER(10)    NOT NULL,
+    NM_EQUIPE       VARCHAR2(80)  NOT NULL,
+    DS_ESPECIALIDADE VARCHAR2(200),
+    ST_ATIVO        CHAR(1)       DEFAULT 'S' NOT NULL,
+    CONSTRAINT PK_T_URB_EQUIPE   PRIMARY KEY (ID_EQUIPE),
+    CONSTRAINT CK_URB_EQ_ATIVO   CHECK (ST_ATIVO IN ('S','N'))
+);
+
+COMMENT ON TABLE  T_URB_EQUIPE                IS 'Equipes especializadas de atendimento de ocorrências urbanas';
+COMMENT ON COLUMN T_URB_EQUIPE.ID_EQUIPE      IS 'Identificador único da equipe';
+COMMENT ON COLUMN T_URB_EQUIPE.NM_EQUIPE      IS 'Nome da equipe (ex: Equipe de Obras, Equipe de Iluminação)';
+COMMENT ON COLUMN T_URB_EQUIPE.DS_ESPECIALIDADE IS 'Descrição da área de especialização da equipe';
+COMMENT ON COLUMN T_URB_EQUIPE.ST_ATIVO       IS 'Status: S=ativa, N=inativa';
+
+-- Tabela: T_URB_GESTOR
+CREATE TABLE T_URB_GESTOR (
+    ID_GESTOR     NUMBER(10)    NOT NULL,
+    ID_EQUIPE     NUMBER(10)    NOT NULL,
+    NM_GESTOR     VARCHAR2(100) NOT NULL,
+    NR_MATRICULA  VARCHAR2(20)  NOT NULL,
+    DS_CARGO      VARCHAR2(60)  NOT NULL,
+    NR_TELEFONE   VARCHAR2(30),
+    CONSTRAINT PK_T_URB_GESTOR         PRIMARY KEY (ID_GESTOR),
+    CONSTRAINT FK_URB_GESTOR_EQUIPE    FOREIGN KEY (ID_EQUIPE)
+        REFERENCES T_URB_EQUIPE (ID_EQUIPE),
+    CONSTRAINT UK_URB_GESTOR_MATRICULA UNIQUE (NR_MATRICULA)
+);
+
+COMMENT ON TABLE  T_URB_GESTOR              IS 'Gestores públicos responsáveis pelo atendimento de chamados';
+COMMENT ON COLUMN T_URB_GESTOR.ID_GESTOR    IS 'Identificador único do gestor';
+COMMENT ON COLUMN T_URB_GESTOR.ID_EQUIPE    IS 'FK - equipe à qual o gestor pertence (um gestor, uma equipe)';
+COMMENT ON COLUMN T_URB_GESTOR.NM_GESTOR    IS 'Nome completo do gestor';
+COMMENT ON COLUMN T_URB_GESTOR.NR_MATRICULA IS 'Matrícula funcional única do servidor público';
+COMMENT ON COLUMN T_URB_GESTOR.DS_CARGO     IS 'Cargo do gestor na prefeitura';
+COMMENT ON COLUMN T_URB_GESTOR.NR_TELEFONE  IS 'Telefone de contato do gestor';
+
+-- Tabela: T_URB_ATENDIMENTO
+CREATE TABLE T_URB_ATENDIMENTO (
+    NR_ATENDIMENTO  NUMBER(10)    NOT NULL,
+    NR_CHAMADO      NUMBER(10)    NOT NULL,
+    ID_GESTOR       NUMBER(10)    NOT NULL,
+    DT_INICIO       DATE          DEFAULT SYSDATE NOT NULL,
+    DT_CONCLUSAO    DATE,
+    DS_RESOLUCAO    VARCHAR2(500),
+    ST_ATENDIMENTO  VARCHAR2(20)  DEFAULT 'EM_ANDAMENTO' NOT NULL,
+    CONSTRAINT PK_T_URB_ATENDIMENTO       PRIMARY KEY (NR_ATENDIMENTO),
+    CONSTRAINT FK_URB_ATEND_CHAMADO       FOREIGN KEY (NR_CHAMADO)
+        REFERENCES T_URB_CHAMADO (NR_CHAMADO),
+    CONSTRAINT FK_URB_ATEND_GESTOR        FOREIGN KEY (ID_GESTOR)
+        REFERENCES T_URB_GESTOR (ID_GESTOR),
+    CONSTRAINT CK_URB_ATEND_STATUS        CHECK (ST_ATENDIMENTO IN
+        ('EM_ANDAMENTO','CONCLUIDO','CANCELADO'))
+);
+
+COMMENT ON TABLE  T_URB_ATENDIMENTO                IS 'Registro dos atendimentos realizados por gestores nos chamados';
+COMMENT ON COLUMN T_URB_ATENDIMENTO.NR_ATENDIMENTO IS 'Identificador único do atendimento';
+COMMENT ON COLUMN T_URB_ATENDIMENTO.NR_CHAMADO     IS 'FK - chamado que está sendo atendido';
+COMMENT ON COLUMN T_URB_ATENDIMENTO.ID_GESTOR      IS 'FK - gestor responsável pelo atendimento';
+COMMENT ON COLUMN T_URB_ATENDIMENTO.DT_INICIO      IS 'Data de início do atendimento';
+COMMENT ON COLUMN T_URB_ATENDIMENTO.DT_CONCLUSAO   IS 'Data de conclusão (null = em andamento)';
+COMMENT ON COLUMN T_URB_ATENDIMENTO.DS_RESOLUCAO   IS 'Descrição detalhada da resolução aplicada';
+COMMENT ON COLUMN T_URB_ATENDIMENTO.ST_ATENDIMENTO IS 'Status: EM_ANDAMENTO, CONCLUIDO, CANCELADO';
+
+-- FK de T_URB_HISTORICO_STATUS para T_URB_GESTOR (adicionada após criação do gestor)
+ALTER TABLE T_URB_HISTORICO_STATUS
+    ADD CONSTRAINT FK_URB_HIST_GESTOR FOREIGN KEY (ID_GESTOR)
+    REFERENCES T_URB_GESTOR (ID_GESTOR);
+
+-- ============================================================
+-- BLOCO 7: AVALIAÇÃO DO CIDADÃO (RN05)
+-- ============================================================
+
+-- Tabela: T_URB_AVALIACAO
+CREATE TABLE T_URB_AVALIACAO (
+    NR_AVALIACAO    NUMBER(10)    NOT NULL,
+    NR_CHAMADO      NUMBER(10)    NOT NULL,
+    ID_CIDADAO      NUMBER(10)    NOT NULL,
+    NR_NOTA         NUMBER(1)     NOT NULL,
+    DS_COMENTARIO   VARCHAR2(400),
+    DT_AVALIACAO    DATE          DEFAULT SYSDATE NOT NULL,
+    CONSTRAINT PK_T_URB_AVALIACAO         PRIMARY KEY (NR_AVALIACAO),
+    CONSTRAINT FK_URB_AVAL_CHAMADO        FOREIGN KEY (NR_CHAMADO)
+        REFERENCES T_URB_CHAMADO (NR_CHAMADO),
+    CONSTRAINT FK_URB_AVAL_CIDADAO        FOREIGN KEY (ID_CIDADAO)
+        REFERENCES T_URB_CIDADAO (ID_CIDADAO),
+    CONSTRAINT UK_URB_AVAL_CHAMADO_CID    UNIQUE (NR_CHAMADO, ID_CIDADAO),
+    CONSTRAINT CK_URB_AVAL_NOTA           CHECK (NR_NOTA BETWEEN 1 AND 5)
+);
+
+COMMENT ON TABLE  T_URB_AVALIACAO               IS 'Avaliações dos cidadãos sobre o atendimento recebido';
+COMMENT ON COLUMN T_URB_AVALIACAO.NR_AVALIACAO  IS 'Identificador único da avaliação';
+COMMENT ON COLUMN T_URB_AVALIACAO.NR_CHAMADO    IS 'FK - chamado avaliado (apenas status RESOLVIDO ou ENCERRADO)';
+COMMENT ON COLUMN T_URB_AVALIACAO.ID_CIDADAO    IS 'FK - cidadão que realizou a avaliação';
+COMMENT ON COLUMN T_URB_AVALIACAO.NR_NOTA       IS 'Nota de satisfação de 1 (péssimo) a 5 (excelente)';
+COMMENT ON COLUMN T_URB_AVALIACAO.DS_COMENTARIO IS 'Comentário opcional do cidadão sobre o atendimento';
+COMMENT ON COLUMN T_URB_AVALIACAO.DT_AVALIACAO  IS 'Data e hora em que a avaliação foi registrada';
+
+-- ============================================================
+-- BLOCO 8: MÍDIA DE CHAMADOS
+-- ============================================================
+
+-- Tabela: T_URB_MIDIA_CHAMADO
+CREATE TABLE T_URB_MIDIA_CHAMADO (
+    NR_MIDIA           NUMBER(10)    NOT NULL,
+    NR_CHAMADO         NUMBER(10)    NOT NULL,
+    TP_MIDIA           VARCHAR2(10)  NOT NULL,
+    DS_URL_STORAGE     VARCHAR2(500) NOT NULL,
+    NM_ARQUIVO         VARCHAR2(200) NOT NULL,
+    DT_UPLOAD          DATE          DEFAULT SYSDATE NOT NULL,
+    NR_TAMANHO_BYTES   NUMBER(15)    NOT NULL,
+    CONSTRAINT PK_T_URB_MIDIA_CHAMADO  PRIMARY KEY (NR_MIDIA),
+    CONSTRAINT FK_URB_MIDIA_CHAMADO    FOREIGN KEY (NR_CHAMADO)
+        REFERENCES T_URB_CHAMADO (NR_CHAMADO),
+    CONSTRAINT CK_URB_MIDIA_TIPO       CHECK (TP_MIDIA IN ('JPG','PNG','MP4','MP3','PDF','TXT'))
+);
+
+COMMENT ON TABLE  T_URB_MIDIA_CHAMADO                  IS 'Metadados de arquivos de mídia enviados junto aos chamados';
+COMMENT ON COLUMN T_URB_MIDIA_CHAMADO.NR_MIDIA         IS 'Identificador único do arquivo de mídia';
+COMMENT ON COLUMN T_URB_MIDIA_CHAMADO.NR_CHAMADO       IS 'FK - chamado ao qual a mídia está vinculada';
+COMMENT ON COLUMN T_URB_MIDIA_CHAMADO.TP_MIDIA         IS 'Tipo do arquivo: JPG, PNG, MP4, MP3, PDF, TXT';
+COMMENT ON COLUMN T_URB_MIDIA_CHAMADO.DS_URL_STORAGE   IS 'URL do arquivo no Object Storage (AWS S3 / Azure Blob)';
+COMMENT ON COLUMN T_URB_MIDIA_CHAMADO.NM_ARQUIVO       IS 'Nome original do arquivo enviado pelo cidadão';
+COMMENT ON COLUMN T_URB_MIDIA_CHAMADO.DT_UPLOAD        IS 'Data e hora do upload do arquivo';
+COMMENT ON COLUMN T_URB_MIDIA_CHAMADO.NR_TAMANHO_BYTES IS 'Tamanho do arquivo em bytes';
+
+-- ============================================================
+-- ÍNDICES DE PERFORMANCE
+-- ============================================================
+
+CREATE INDEX IDX_URB_CHAMADO_CIDADAO    ON T_URB_CHAMADO (ID_CIDADAO);
+CREATE INDEX IDX_URB_CHAMADO_STATUS     ON T_URB_CHAMADO (ST_CHAMADO);
+CREATE INDEX IDX_URB_CHAMADO_LOGR       ON T_URB_CHAMADO (ID_LOGRADOURO);
+CREATE INDEX IDX_URB_HIST_CHAMADO       ON T_URB_HISTORICO_STATUS (NR_CHAMADO);
+CREATE INDEX IDX_URB_ATEND_CHAMADO      ON T_URB_ATENDIMENTO (NR_CHAMADO);
+CREATE INDEX IDX_URB_ATEND_GESTOR       ON T_URB_ATENDIMENTO (ID_GESTOR);
+CREATE INDEX IDX_URB_MIDIA_CHAMADO      ON T_URB_MIDIA_CHAMADO (NR_CHAMADO);
+
+-- ============================================================
+-- FIM DO SCRIPT
+-- TOTAL: 15 TABELAS | 14 SEQUENCES | 7 ÍNDICES
+-- UrbanIQ - FIAP 2026
+-- ============================================================

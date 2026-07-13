@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="main_view" objectID="7C8C102C-4A13-F4B9-09CA-09D30DF67852" name="UrbanIQ_Relacional" visible="true"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

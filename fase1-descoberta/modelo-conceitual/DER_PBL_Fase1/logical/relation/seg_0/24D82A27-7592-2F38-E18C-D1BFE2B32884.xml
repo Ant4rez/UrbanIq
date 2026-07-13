@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="classifica" directorySegmentName="seg_0" id="24D82A27-7592-2F38-E18C-D1BFE2B32884">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:35:37 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<sourcePk>DCCD18B7-2ACA-200C-1ECA-0B0E1CF309FA</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>1CB3C1A0-2767-8E2E-E28E-E1AC58CB7E28</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>932BF7BE-2F9C-F8C6-162C-7454AD1D03CE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

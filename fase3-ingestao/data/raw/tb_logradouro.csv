@@ -1,0 +1,21 @@
+ID_LOGRADOURO,ID_BAIRRO,NM_LOGRADOURO,DS_COMPLEMENTO,NR_CEP
+1,1,Rua Aspicuelta,,5422001
+2,1,Rua Fradique Coutinho,,5422002
+3,2,Rua dos Pinheiros,,5422003
+4,2,Avenida Rebouças,,5402100
+5,3,Rua das Maçãs,,8250001
+6,3,Avenida Radial Leste,,8250010
+7,4,Rua da Mooca,,3103000
+8,4,Rua Borges de Figueiredo,,3107001
+9,5,Avenida Sapopemba,,3829000
+10,5,Rua Vila Prudente,,3829001
+11,6,Avenida Braz Leme,,2021000
+12,6,Rua Voluntários da Pátria,,2010001
+13,7,Avenida Penha,,3630000
+14,7,Rua São Caetano,,3631001
+15,8,Rua Domingos Fernandes,,4537000
+16,8,Avenida Campo Belo,,4525001
+17,9,Rua Silva Bueno,,4208000
+18,9,Avenida Nazaré,,4211001
+19,10,Praça da Sé,,1001000
+20,10,Avenida Paulista,,1310100

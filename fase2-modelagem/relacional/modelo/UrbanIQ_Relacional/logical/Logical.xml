@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="3639D920-FF5B-156F-92B3-657D9B207ECF" mainViewID="DFF433BB-0820-A521-4326-9442F67F7F42">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:18:14 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

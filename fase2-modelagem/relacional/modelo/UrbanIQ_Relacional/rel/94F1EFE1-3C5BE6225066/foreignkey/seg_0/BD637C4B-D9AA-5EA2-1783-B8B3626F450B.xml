@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BD637C4B-D9AA-5EA2-1783-B8B3626F450B" containerWithKeyObject="0FE1A455-018F-8820-5E25-8448A6B6F48C" localFKIndex="02A1FBDF-30FC-98B6-DB25-7F84A6FFB6A7" name="FK_URB_CIDADE_BAIRRO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>35CF8346-0727-DE42-35F0-86BE5A1FB6BA</importedID>
+<referredTableLongName>T_URB_CIDADE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DF932645-43CF-E094-1999-3A31D3580208</referredTableID>
+<keyObject>F0A22D25-7069-8F80-8979-91CADDD23275</keyObject>
+<referredKeyID>F0A22D25-7069-8F80-8979-91CADDD23275</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_CIDADE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

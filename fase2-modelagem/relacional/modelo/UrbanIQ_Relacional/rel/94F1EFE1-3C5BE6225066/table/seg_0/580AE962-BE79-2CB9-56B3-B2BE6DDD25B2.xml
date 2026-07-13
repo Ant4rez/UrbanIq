@@ -1,0 +1,132 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="580AE962-BE79-2CB9-56B3-B2BE6DDD25B2" name="T_URB_CIDADAO_LOGRADOURO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Vínculo entre cidadãos e logradouros - histórico de endereços]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>B67A02B7-44C3-D0EB-EEC8-C0D62F323FE6</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CIDADAO" id="0A296AE0-BBD0-8BDF-7256-6A8CA138E3AC">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[FK - cidadão proprietário do endereço]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>32DE4224-E9BC-7116-3F8D-CEC0354A6821</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="382498BD-2E0D-B779-D16D-14C567DFD422" referredColumn="BCB76E00-8F54-B635-B82A-F3C78967B397"/>
+</associations>
+</Column>
+<Column name="ID_LOGRADOURO" id="CAC4422D-C0EC-5665-B9E0-29FCD8905E0C">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[FK - logradouro vinculado ao cidadão]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>489B1622-A698-EC30-44C5-F0446E84E5DC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="16F80A04-9A17-099D-4274-5D5F7A63A01B" referredColumn="2BC762F5-C4A8-81DD-31DA-E5620056C745"/>
+</associations>
+</Column>
+<Column name="DT_INICIO" id="83371D1A-C0A4-3E22-3E6A-ECF6EFF4CE32">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Data de início do vínculo com o endereço]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>1FB6D575-66F2-FB71-C20E-79F19310317C</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>9554230A-6E97-E636-0377-B92AC2C357E3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DT_FIM" id="32AAB36A-67BA-92EC-77AC-816B5CE4DC36">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Data de encerramento do vínculo (null = endereço ativo)]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>27D996FE-B7C0-B46D-038F-DB7D4F21AD8B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>9554230A-6E97-E636-0377-B92AC2C357E3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TP_ENDERECO" id="63D873ED-37A5-44CC-D9D6-C045ABD39DC6">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Tipo do endereço: RESIDENCIAL, COMERCIAL, CORRESPONDENCIA, OUTRO]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>1FE3A475-A25E-8989-56B3-172B12390F7B</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>7FAA5D73-335E-54BD-6E9A-425EA9315D34</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="096A2E60-0D39-9AEE-FFA4-4F34ED78A7E7" name="PK_T_URB_CID_LOGR">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>ADD54BA3-F33C-E7B9-BD5F-86B3B275B213</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A296AE0-BBD0-8BDF-7256-6A8CA138E3AC"/>
+<colUsage columnID="CAC4422D-C0EC-5665-B9E0-29FCD8905E0C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1C499AF4-3BC5-F975-5897-CFD4D414B624" name="FK_URB_CID_CIDADAO">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A296AE0-BBD0-8BDF-7256-6A8CA138E3AC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5363AF5B-2429-EE62-DC45-6B9B8502010A" name="FK_URB_CID_LOGRADOURO">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CAC4422D-C0EC-5665-B9E0-29FCD8905E0C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="CK_URB_TP_ENDERECO" directorySegmentName="seg_0" id="58269441-0D78-D07E-8387-D3DA701B9089">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>D96B97ED-740F-F03E-C26A-AAA25FA4E1DE</importedID>
+<rule><![CDATA[TP_ENDERECO IN ('RESIDENCIAL','COMERCIAL','CORRESPONDENCIA','OUTRO')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

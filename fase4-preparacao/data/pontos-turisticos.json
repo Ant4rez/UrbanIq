@@ -1,0 +1,272 @@
+[
+  {
+    "NM_PONTO_TURISTICO":"Parque do Trianon",
+    "NM_BAIRRO":"Cerqueira Cesar",
+    "NR_LATITUDE":-23.3347,
+    "NR_LONGITUDE":-46.3915,
+    "MEDIA_NOTA":5.98,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":101,
+    "RANKING":1
+  },
+  {
+    "NM_PONTO_TURISTICO":"Praca da Liberdade",
+    "NM_BAIRRO":"Liberdade",
+    "NR_LATITUDE":-23.555,
+    "NR_LONGITUDE":-46.635,
+    "MEDIA_NOTA":5.802,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":96,
+    "RANKING":2
+  },
+  {
+    "NM_PONTO_TURISTICO":"Cantina Italiana Lazarella",
+    "NM_BAIRRO":"Bela Vista",
+    "NR_LATITUDE":-23.55297,
+    "NR_LONGITUDE":-46.64635,
+    "MEDIA_NOTA":5.767,
+    "PRECO_MEDIO":100.0,
+    "QTD_AVALIACOES":103,
+    "RANKING":3
+  },
+  {
+    "NM_PONTO_TURISTICO":"Shopping JK Iguatemi",
+    "NM_BAIRRO":"Vila Olimpia",
+    "NR_LATITUDE":-23.595,
+    "NR_LONGITUDE":-46.689,
+    "MEDIA_NOTA":5.689,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":61,
+    "RANKING":4
+  },
+  {
+    "NM_PONTO_TURISTICO":"Shopping Morumbi",
+    "NM_BAIRRO":"Morumbi",
+    "NR_LATITUDE":-23.623,
+    "NR_LONGITUDE":-46.699,
+    "MEDIA_NOTA":5.639,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":97,
+    "RANKING":5
+  },
+  {
+    "NM_PONTO_TURISTICO":"Roda Gigante Sao Paulo",
+    "NM_BAIRRO":"Pinheiros",
+    "NR_LATITUDE":-23.452,
+    "NR_LONGITUDE":-46.722,
+    "MEDIA_NOTA":5.522,
+    "PRECO_MEDIO":70.0,
+    "QTD_AVALIACOES":92,
+    "RANKING":6
+  },
+  {
+    "NM_PONTO_TURISTICO":"Bar do Valadares",
+    "NM_BAIRRO":"Lapa",
+    "NR_LATITUDE":-23.3124,
+    "NR_LONGITUDE":-46.413,
+    "MEDIA_NOTA":5.51,
+    "PRECO_MEDIO":40.0,
+    "QTD_AVALIACOES":143,
+    "RANKING":7
+  },
+  {
+    "NM_PONTO_TURISTICO":"Cantina Mooca",
+    "NM_BAIRRO":"Mooca",
+    "NR_LATITUDE":-23.56,
+    "NR_LONGITUDE":-46.6,
+    "MEDIA_NOTA":5.508,
+    "PRECO_MEDIO":60.0,
+    "QTD_AVALIACOES":118,
+    "RANKING":8
+  },
+  {
+    "NM_PONTO_TURISTICO":"Catedral da Se",
+    "NM_BAIRRO":"Se",
+    "NR_LATITUDE":-23.55,
+    "NR_LONGITUDE":-46.633,
+    "MEDIA_NOTA":5.506,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":81,
+    "RANKING":9
+  },
+  {
+    "NM_PONTO_TURISTICO":"Shopping Ibirapuera",
+    "NM_BAIRRO":"Moema",
+    "NR_LATITUDE":-23.61,
+    "NR_LONGITUDE":-46.665,
+    "MEDIA_NOTA":5.5,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":124,
+    "RANKING":10
+  },
+  {
+    "NM_PONTO_TURISTICO":"Shopping Tatuape",
+    "NM_BAIRRO":"Tatuape",
+    "NR_LATITUDE":-23.54,
+    "NR_LONGITUDE":-46.575,
+    "MEDIA_NOTA":5.496,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":119,
+    "RANKING":11
+  },
+  {
+    "NM_PONTO_TURISTICO":"Parque da USP",
+    "NM_BAIRRO":"Butanta",
+    "NR_LATITUDE":-23.559,
+    "NR_LONGITUDE":-46.73,
+    "MEDIA_NOTA":5.479,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":48,
+    "RANKING":12
+  },
+  {
+    "NM_PONTO_TURISTICO":"Parque do Ibirapuera",
+    "NM_BAIRRO":"Vila Mariana",
+    "NR_LATITUDE":-23.587416,
+    "NR_LONGITUDE":-46.657634,
+    "MEDIA_NOTA":5.479,
+    "PRECO_MEDIO":20.62,
+    "QTD_AVALIACOES":2899,
+    "RANKING":13
+  },
+  {
+    "NM_PONTO_TURISTICO":"Shopping Cidade Sao Paulo",
+    "NM_BAIRRO":"Bela Vista",
+    "NR_LATITUDE":-23.56354,
+    "NR_LONGITUDE":-46.65258,
+    "MEDIA_NOTA":5.474,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":133,
+    "RANKING":14
+  },
+  {
+    "NM_PONTO_TURISTICO":"Rua Frei Caneca",
+    "NM_BAIRRO":"Consolacao",
+    "NR_LATITUDE":-23.553,
+    "NR_LONGITUDE":-46.655,
+    "MEDIA_NOTA":5.429,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":112,
+    "RANKING":15
+  },
+  {
+    "NM_PONTO_TURISTICO":"MASP",
+    "NM_BAIRRO":"Bela Vista",
+    "NR_LATITUDE":-23.561414,
+    "NR_LONGITUDE":-46.655881,
+    "MEDIA_NOTA":5.424,
+    "PRECO_MEDIO":46.45,
+    "QTD_AVALIACOES":2833,
+    "RANKING":16
+  },
+  {
+    "NM_PONTO_TURISTICO":"Arena Allianz Parque",
+    "NM_BAIRRO":"Perdizes",
+    "NR_LATITUDE":-23.527,
+    "NR_LONGITUDE":-46.678,
+    "MEDIA_NOTA":5.416,
+    "PRECO_MEDIO":152.38,
+    "QTD_AVALIACOES":3082,
+    "RANKING":17
+  },
+  {
+    "NM_PONTO_TURISTICO":"Aquario de Sao Paulo",
+    "NM_BAIRRO":"Ipiranga",
+    "NR_LATITUDE":-23.3536,
+    "NR_LONGITUDE":-46.3651,
+    "MEDIA_NOTA":5.35,
+    "PRECO_MEDIO":50.0,
+    "QTD_AVALIACOES":80,
+    "RANKING":18
+  },
+  {
+    "NM_PONTO_TURISTICO":"Cinema Berrini",
+    "NM_BAIRRO":"Brooklin",
+    "NR_LATITUDE":-23.61,
+    "NR_LONGITUDE":-46.7,
+    "MEDIA_NOTA":5.35,
+    "PRECO_MEDIO":45.0,
+    "QTD_AVALIACOES":60,
+    "RANKING":18
+  },
+  {
+    "NM_PONTO_TURISTICO":"Shopping Patio Paulista",
+    "NM_BAIRRO":"Bela Vista",
+    "NR_LATITUDE":-23.5989,
+    "NR_LONGITUDE":-46.6976,
+    "MEDIA_NOTA":5.311,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":119,
+    "RANKING":19
+  },
+  {
+    "NM_PONTO_TURISTICO":"Japan House",
+    "NM_BAIRRO":"Bela Vista",
+    "NR_LATITUDE":-23.5705,
+    "NR_LONGITUDE":-46.6446,
+    "MEDIA_NOTA":5.277,
+    "PRECO_MEDIO":35.0,
+    "QTD_AVALIACOES":141,
+    "RANKING":20
+  },
+  {
+    "NM_PONTO_TURISTICO":"Restaurante Campo Belo",
+    "NM_BAIRRO":"Campo Belo",
+    "NR_LATITUDE":-23.63,
+    "NR_LONGITUDE":-46.67,
+    "MEDIA_NOTA":5.233,
+    "PRECO_MEDIO":80.0,
+    "QTD_AVALIACOES":73,
+    "RANKING":21
+  },
+  {
+    "NM_PONTO_TURISTICO":"Museu do Ipiranga",
+    "NM_BAIRRO":"Ipiranga",
+    "NR_LATITUDE":-23.585797,
+    "NR_LONGITUDE":-46.609848,
+    "MEDIA_NOTA":5.209,
+    "PRECO_MEDIO":10.0,
+    "QTD_AVALIACOES":67,
+    "RANKING":22
+  },
+  {
+    "NM_PONTO_TURISTICO":"Campo Marte",
+    "NM_BAIRRO":"Santana",
+    "NR_LATITUDE":-23.507,
+    "NR_LONGITUDE":-46.637,
+    "MEDIA_NOTA":5.111,
+    "PRECO_MEDIO":12.0,
+    "QTD_AVALIACOES":90,
+    "RANKING":23
+  },
+  {
+    "NM_PONTO_TURISTICO":"Mercadao de Sao Paulo",
+    "NM_BAIRRO":"Centro",
+    "NR_LATITUDE":-23.541,
+    "NR_LONGITUDE":-46.629,
+    "MEDIA_NOTA":4.962,
+    "PRECO_MEDIO":95.0,
+    "QTD_AVALIACOES":53,
+    "RANKING":24
+  },
+  {
+    "NM_PONTO_TURISTICO":"Restaurante Pinheiros",
+    "NM_BAIRRO":"Pinheiros",
+    "NR_LATITUDE":-23.567,
+    "NR_LONGITUDE":-46.69,
+    "MEDIA_NOTA":4.881,
+    "PRECO_MEDIO":35.0,
+    "QTD_AVALIACOES":84,
+    "RANKING":25
+  },
+  {
+    "NM_PONTO_TURISTICO":"Feira do Bras",
+    "NM_BAIRRO":"Bras",
+    "NR_LATITUDE":-23.542,
+    "NR_LONGITUDE":-46.61,
+    "MEDIA_NOTA":4.722,
+    "PRECO_MEDIO":0.0,
+    "QTD_AVALIACOES":36,
+    "RANKING":26
+  }
+]

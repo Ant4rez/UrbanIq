@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="registra" directorySegmentName="seg_0" id="EDD5E1BE-1178-FD66-E6E1-2880A1C23CE6">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:37:33 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<sourcePk>63441866-0198-3C81-78F8-F2D870034908</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>FEFE909F-9A6A-1187-6983-A8CB1DBFE2C7</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>932BF7BE-2F9C-F8C6-162C-7454AD1D03CE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

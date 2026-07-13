@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="869C53E5-F778-8CBB-6ED6-649CCCF7B189" name="T_URB_SUBCATEGORIA">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Subcategorias de chamados vinculadas a uma categoria principal]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>929ACE0B-2F33-7504-77CE-CEEB105CE397</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_SUBCATEGORIA" id="2CBB1EBA-02CB-39CD-B4BE-46C06C857DDC">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único da subcategoria]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>511127E6-E3C6-8DA3-4E8E-6D58C7B2DDA8</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CATEGORIA" id="CDBAC030-2A71-A836-A145-0992E9E74E12">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[FK - categoria principal à qual pertence]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>7E32A2DA-C30A-39DC-85FD-21548356E718</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0128A56A-42F9-1543-5F7B-D83C7E857EC6" referredColumn="E7923F07-0A6E-3C1C-1EA4-29EB18D1470F"/>
+</associations>
+</Column>
+<Column name="NM_SUBCATEGORIA" id="98F8F4E8-5896-EF75-E50B-C6C813C8405D">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nome da subcategoria (ex: Buraco na via, Poste apagado)]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>92BF261F-B9C3-A630-3324-9E3313C9BC79</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3D7A360E-7B62-E7F8-6A57-F8AFD932BB01</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NR_PRIORIDADE_BASE" id="0D019AA0-18F3-68EF-7579-E07A2303A05F">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Prioridade base de 1 (menor) a 5 (maior urgência)]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>036D62A3-BF07-DF5F-40D4-8A15EE740255</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DB12145E-3849-1E1B-32FA-CA73CBBFCBF6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ST_ATIVO" id="45712D84-1EED-4059-0AE1-918FE29A0655">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Status: S=ativa, N=inativa]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>AF0A6E2E-6F0F-085D-E197-48B52FC4ED75</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>F0337C54-F257-B883-F0BA-FCA8D3DC1F75</domain>
+<defaultValue>&apos;S&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37EC6C51-AEC3-8C74-C2E3-9B4564516F29" name="PK_T_URB_SUBCATEGORIA">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>73F7DD5B-F88C-C35E-7A14-B62F70828EF0</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2CBB1EBA-02CB-39CD-B4BE-46C06C857DDC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4B89AED1-74DE-5811-1EF2-831F46E27375" name="FK_URB_CAT_SUBCATEG">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CDBAC030-2A71-A836-A145-0992E9E74E12"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="CK_URB_PRIOR_BASE" directorySegmentName="seg_0" id="9D370E1A-A780-A343-C5C6-134E363E16F7">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>C7C33341-1548-3902-A33F-32489F5BA7F8</importedID>
+<rule><![CDATA[NR_PRIORIDADE_BASE BETWEEN 1 AND 5]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="CK_URB_SUBCAT_ST_ATIVO" directorySegmentName="seg_0" id="230241FB-ADAD-841F-02E6-D284C2F7F142">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>97B28599-8996-3293-F916-5E7410C38910</importedID>
+<rule><![CDATA[ST_ATIVO IN ('S','N')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

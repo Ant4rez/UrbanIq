@@ -1,0 +1,182 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="932BF7BE-2F9C-F8C6-162C-7454AD1D03CE" name="Chamado">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:02:15 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_chamado" id="3CBAB34B-D27E-FF19-E4CC-16C4497FE172">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:03:33 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data_abertura" id="C5B1F96B-146F-82A0-62C0-5C71CE28F405">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:08:40 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descricao_chamado" id="A25B65FB-756E-2617-ABE7-91C790505A76">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:08:55 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="criticidade_chamado" id="7014620E-26B0-364A-DC91-BF758E6EFEE6">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:09:10 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prazo_estimado" id="7ADC05AB-8C6B-7150-8EFD-D38FD5EC31A7">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:09:27 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data_conclusao" id="01DAC2CC-5D88-A119-6D4E-94D6586B7117">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:09:38 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_cidadao" id="0873EAE9-1202-0C60-99B2-3A7280D06FC2">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:25:38 UTC</createdTime>
+<generatorID>19964A9A-DB79-0E5A-7E11-F34FEE492667</generatorID>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<referedAttribute>2A3DA81A-3033-7A10-0CE6-01D1BA294FDF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_tipo_problema" id="431AFF5E-0DC8-143E-385E-4D8A678E99F0">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:35:37 UTC</createdTime>
+<generatorID>24D82A27-7592-2F38-E18C-D1BFE2B32884</generatorID>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<referedAttribute>7DF5397C-353B-D5AE-4B1D-780241094769</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_status" id="C58EC9E8-4004-EA7C-3D18-96A155654916">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:36:56 UTC</createdTime>
+<generatorID>2CD65842-BF60-7753-BA11-8B2072450C08</generatorID>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<referedAttribute>2763529B-8C7D-985E-CD28-F49DC10F4F64</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_canal" id="47F6CB0A-1A78-E7B8-12CA-2F7F671BED3D">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:37:33 UTC</createdTime>
+<generatorID>EDD5E1BE-1178-FD66-E6E1-2880A1C23CE6</generatorID>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<referedAttribute>63548887-8322-6D36-FEE2-4BDD6CFB3328</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_regiao" id="01CADC15-CF49-78F7-FB1B-D2560A216391">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:38:23 UTC</createdTime>
+<generatorID>9FFC6050-B406-AC0A-7D99-579AB12EA0AB</generatorID>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<referedAttribute>AC57D2B1-A4C8-94B1-0337-DA09CA3D9726</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_equipe" id="17A77BDD-F697-97BC-6B64-AF304EB14D84">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:39:53 UTC</createdTime>
+<generatorID>1E390AF2-3D8D-982B-A5D9-8C26FDF30710</generatorID>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<referedAttribute>BE00F164-DDC8-CF07-FBC6-0D2937CA1B2E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="040098B9-59E8-E6CF-6A2F-0B7A391DA06D" name="Chamado PK">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:10:55 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3CBAB34B-D27E-FF19-E4CC-16C4497FE172</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

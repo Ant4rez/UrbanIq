@@ -1,0 +1,155 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="91463C61-B406-E378-CB1C-4C1A6E8133CB" name="T_URB_MIDIA_CHAMADO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Metadados de arquivos de mídia enviados junto aos chamados]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>E0F5B117-4456-5D68-8383-CAC38D22F30E</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NR_MIDIA" id="A4195CFB-7443-82E8-8CD9-CD1F19303592">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identificador único do arquivo de mídia]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>200EE2D8-7B36-5863-2DE8-77BCE60680C0</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NR_CHAMADO" id="238D2379-FFF2-A0A0-0064-ABBCEF2B1BA7">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[FK - chamado ao qual a mídia está vinculada]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>DBA1D3FD-F3E2-66E6-0A4C-AFE941254A25</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E7F66238-0B43-0456-AB77-CC21EFBDFF4C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="24B89F41-9AD0-AB50-1349-D7A04746C877" referredColumn="B508A10C-E98E-7CA7-83DD-18CA207A5421"/>
+</associations>
+</Column>
+<Column name="TP_MIDIA" id="6A1B0C13-DFF3-887F-A5BF-52DF8C76404C">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Tipo do arquivo: JPG, PNG, MP4, MP3, PDF, TXT]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>B1C499CF-B75B-ECD4-7B15-46AF75331037</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4524104F-6E2D-C5BF-AC1F-F9AAC324049B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_URL_STORAGE" id="D4E4C95C-1673-8CCB-0A57-5CF1896CEE38">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[URL do arquivo no Object Storage (AWS S3 / Azure Blob)]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>0BE1E653-55F3-DD70-3A55-10C31FBEE8FD</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>230F616A-CE2C-04BB-0E11-9FC8ACDF503D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NM_ARQUIVO" id="70D40610-E392-CB14-6848-243D3F45390A">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nome original do arquivo enviado pelo cidadão]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>37B24FBE-531D-F8AE-F329-C4B16AE4E1FB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8FD35089-6704-F22F-A86E-9BFC1B5DFA6D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DT_UPLOAD" id="18C9ED93-7BB3-3A0B-140D-48365038209B">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Data e hora do upload do arquivo]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>0549B287-BBCC-472C-3AEF-EEC0CB749BDC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>9554230A-6E97-E636-0377-B92AC2C357E3</domain>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NR_TAMANHO_BYTES" id="783D986C-3781-5A85-7C5F-F71C7D3CCB88">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Tamanho do arquivo em bytes]]></commentInRDBMS>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>18B71152-3C0A-DD1B-4A3E-498B9020BA30</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>84475EA8-CE47-D0D9-B31F-00976880AFFA</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="45FD5B1A-8141-3781-1BD1-9694C5D475A3" name="PK_T_URB_MIDIA_CHAMADO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>373F0EDF-8200-E186-9F13-D6F4606EF221</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A4195CFB-7443-82E8-8CD9-CD1F19303592"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="248881A6-7B23-2DD4-DE18-BFDE7F63483A" name="IDX_URB_MIDIA_CHAMADO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>8E9987E8-9880-E5E1-0302-FBBF50994837</importedID>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="238D2379-FFF2-A0A0-0064-ABBCEF2B1BA7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DCB41998-D559-B74A-C974-63772AE8DFF9" name="FK_URB_MIDIA_CHAMADO">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="238D2379-FFF2-A0A0-0064-ABBCEF2B1BA7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="CK_URB_MIDIA_TIPO" directorySegmentName="seg_0" id="BBB76CEC-D7CD-4E67-4BFB-D333E3D3A9C9">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>A91FAC1C-C88B-C0CC-520B-EF51EA0FC977</importedID>
+<rule><![CDATA[TP_MIDIA IN ('JPG','PNG','MP4','MP3','PDF','TXT')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="atende" directorySegmentName="seg_0" id="1E390AF2-3D8D-982B-A5D9-8C26FDF30710">
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-01 00:39:53 UTC</createdTime>
+<ownerDesignName>DER_PBL_Fase1</ownerDesignName>
+<engineerTo>
+<item key="AADD76E8-8DAD-4CCA-7998-45C0ACF5077E" value="true"/>
+</engineerTo>
+<sourcePk>251E7155-6548-C3A5-3EA8-5723908387C0</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>00AA4C47-AF00-4E2E-37F2-62A5091165F1</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>932BF7BE-2F9C-F8C6-162C-7454AD1D03CE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

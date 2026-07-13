@@ -1,0 +1,9 @@
+ID_CATEGORIA,NM_CATEGORIA,DS_CATEGORIA,ST_ATIVO
+1,Infraestrutura Viária,"Problemas em vias públicas, calçadas, asfalto e pavimentação urbana",S
+2,Iluminação Pública,Falhas e defeitos no sistema de iluminação de vias e praças,S
+3,Zeladoria Urbana,"Limpeza pública, coleta de lixo, poda e conservação de espaços",S
+4,Saúde Pública,"Questões sanitárias, focos de vetores e saneamento básico urbano",S
+5,Transporte Público,"Infraestrutura de pontos de parada, sinalização e acessibilidade",S
+6,Segurança Pública,"Equipamentos de monitoramento, semáforos e sinalização viária",S
+7,Meio Ambiente,"Árvores, praças, áreas verdes, córregos e poluição ambiental",S
+8,Serviços Públicos,"Bueiros, drenagem, pavimentação de praças e demais serviços",S

@@ -1,0 +1,16 @@
+ID_GESTOR,ID_EQUIPE,NM_GESTOR,NR_MATRICULA,DS_CARGO,NR_TELEFONE
+1,1,Carlos Eduardo Ferreira,MAT-001,Coordenador de Obras,1191000001
+2,1,Patricia Lima Santos,MAT-002,Supervisora de Campo,1191000002
+3,1,Roberto Alves Mota,MAT-003,Engenheiro Civil Sênior,1191000003
+4,2,Fernanda Costa Ribeiro,MAT-004,Coordenadora de Iluminação,1191000004
+5,2,Marcelo Souza Carvalho,MAT-005,Técnico Eletricista Sênior,1191000005
+6,2,Juliana Pereira Dias,MAT-006,Supervisora de Instalações,1191000006
+7,3,André Rodrigues Silva,MAT-007,Coordenador de Limpeza,1191000007
+8,3,Camila Mendes Teixeira,MAT-008,Supervisora Operacional,1191000008
+9,3,Paulo Henrique Castro,MAT-009,Inspetor de Zeladoria,1191000009
+10,4,Aline Ferreira Barbosa,MAT-010,Coordenadora de Saúde Pública,1191000010
+11,4,Diego Martins Pinto,MAT-011,Agente de Vigilância Sanitária,1191000011
+12,4,Renata Oliveira Gomes,MAT-012,Supervisora de Saneamento,1191000012
+13,5,Thiago Borges Cunha,MAT-013,Coordenador de Trânsito,1191000013
+14,5,Luciana Azevedo Nunes,MAT-014,Supervisora de Sinalização,1191000014
+15,5,Rodrigo Santos Faria,MAT-015,Técnico em Semáforos,1191000015

@@ -1,0 +1,192 @@
+
+<style>
+#erd-wrap { overflow-x: auto; }
+#erd svg { min-width: 680px; }
+.erd-title { font-size:14px; font-weight:500; margin:0 0 12px; color:var(--color-text-primary); }
+.erd-legend { display:flex; gap:16px; font-size:12px; color:var(--color-text-secondary); margin:12px 0 0; flex-wrap:wrap; }
+.leg-item { display:flex; align-items:center; gap:6px; }
+.leg-dot { width:10px; height:10px; border-radius:2px; }
+</style>
+
+<p class="erd-title">Modelo físico de banco de dados — UrbanIQ (Fase 2)</p>
+<div id="erd-wrap"><div id="erd"></div></div>
+<div class="erd-legend">
+  <span class="leg-item"><span class="leg-dot" style="background:#185FA5"></span>Endereços (normalizados)</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#639922"></span>Cidadão</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#993556"></span>Chamado / Classificação</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#BA7517"></span>Atendimento / Equipe</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#3B6D11"></span>Avaliação / Mídia</span>
+</div>
+
+<script type="module">
+import mermaid from 'https://esm.sh/mermaid@11/dist/mermaid.esm.min.mjs';
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+await document.fonts.ready;
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"Anthropic Sans", sans-serif',
+  themeVariables: {
+    darkMode: dark,
+    fontSize: '12px',
+    fontFamily: '"Anthropic Sans", sans-serif',
+    lineColor: dark ? '#9c9a92' : '#73726c',
+    textColor: dark ? '#c2c0b6' : '#3d3d3a',
+  },
+});
+
+const diagram = `erDiagram
+  T_URB_ESTADO {
+    NUMBER ID_ESTADO PK
+    CHAR(2) SG_ESTADO
+    VARCHAR2(40) NM_ESTADO
+  }
+  T_URB_CIDADE {
+    NUMBER ID_CIDADE PK
+    NUMBER ID_ESTADO FK
+    VARCHAR2(60) NM_CIDADE
+  }
+  T_URB_BAIRRO {
+    NUMBER ID_BAIRRO PK
+    NUMBER ID_CIDADE FK
+    VARCHAR2(60) NM_BAIRRO
+    VARCHAR2(30) NM_ZONA_BAIRRO
+  }
+  T_URB_LOGRADOURO {
+    NUMBER ID_LOGRADOURO PK
+    NUMBER ID_BAIRRO FK
+    VARCHAR2(120) NM_LOGRADOURO
+    VARCHAR2(50) DS_COMPLEMENTO
+    NUMBER(8) NR_CEP
+  }
+  T_URB_CIDADAO {
+    NUMBER ID_CIDADAO PK
+    NUMBER(11) NR_CPF_CIDADAO
+    VARCHAR2(100) NM_CIDADAO
+    VARCHAR2(30) NR_TELEFONE
+    VARCHAR2(100) DS_EMAIL
+    DATE DT_NASCIMENTO
+  }
+  T_URB_CIDADAO_LOGRADOURO {
+    NUMBER ID_CIDADAO FK
+    NUMBER ID_LOGRADOURO FK
+    DATE DT_INICIO
+    DATE DT_FIM
+    VARCHAR2(25) TP_ENDERECO
+  }
+  T_URB_CATEGORIA {
+    NUMBER ID_CATEGORIA PK
+    VARCHAR2(80) NM_CATEGORIA
+    VARCHAR2(200) DS_CATEGORIA
+    CHAR(1) ST_ATIVO
+  }
+  T_URB_SUBCATEGORIA {
+    NUMBER ID_SUBCATEGORIA PK
+    NUMBER ID_CATEGORIA FK
+    VARCHAR2(100) NM_SUBCATEGORIA
+    NUMBER(1) NR_PRIORIDADE_BASE
+    CHAR(1) ST_ATIVO
+  }
+  T_URB_CHAMADO {
+    NUMBER NR_CHAMADO PK
+    NUMBER ID_CIDADAO FK
+    NUMBER ID_LOGRADOURO FK
+    NUMBER ID_SUBCATEGORIA FK
+    DATE DT_ABERTURA
+    VARCHAR2(500) DS_CHAMADO
+    NUMBER(3) NR_SCORE_PRIORIDADE
+    VARCHAR2(20) ST_CHAMADO
+  }
+  T_URB_HISTORICO_STATUS {
+    NUMBER NR_HISTORICO PK
+    NUMBER NR_CHAMADO FK
+    NUMBER ID_GESTOR FK
+    DATE DT_ATUALIZACAO
+    VARCHAR2(20) ST_ANTERIOR
+    VARCHAR2(20) ST_NOVO
+    VARCHAR2(400) DS_OBSERVACAO
+  }
+  T_URB_EQUIPE {
+    NUMBER ID_EQUIPE PK
+    VARCHAR2(80) NM_EQUIPE
+    VARCHAR2(200) DS_ESPECIALIDADE
+    CHAR(1) ST_ATIVO
+  }
+  T_URB_GESTOR {
+    NUMBER ID_GESTOR PK
+    NUMBER ID_EQUIPE FK
+    VARCHAR2(100) NM_GESTOR
+    VARCHAR2(20) NR_MATRICULA
+    VARCHAR2(60) DS_CARGO
+    VARCHAR2(30) NR_TELEFONE
+  }
+  T_URB_ATENDIMENTO {
+    NUMBER NR_ATENDIMENTO PK
+    NUMBER NR_CHAMADO FK
+    NUMBER ID_GESTOR FK
+    DATE DT_INICIO
+    DATE DT_CONCLUSAO
+    VARCHAR2(500) DS_RESOLUCAO
+    VARCHAR2(20) ST_ATENDIMENTO
+  }
+  T_URB_AVALIACAO {
+    NUMBER NR_AVALIACAO PK
+    NUMBER NR_CHAMADO FK
+    NUMBER ID_CIDADAO FK
+    NUMBER(1) NR_NOTA
+    VARCHAR2(400) DS_COMENTARIO
+    DATE DT_AVALIACAO
+  }
+  T_URB_MIDIA_CHAMADO {
+    NUMBER NR_MIDIA PK
+    NUMBER NR_CHAMADO FK
+    VARCHAR2(10) TP_MIDIA
+    VARCHAR2(500) DS_URL_STORAGE
+    VARCHAR2(200) NM_ARQUIVO
+    DATE DT_UPLOAD
+    NUMBER NR_TAMANHO_BYTES
+  }
+
+  T_URB_ESTADO ||--o{ T_URB_CIDADE : "tem"
+  T_URB_CIDADE ||--o{ T_URB_BAIRRO : "tem"
+  T_URB_BAIRRO ||--o{ T_URB_LOGRADOURO : "tem"
+  T_URB_LOGRADOURO ||--o{ T_URB_CIDADAO_LOGRADOURO : "pertence"
+  T_URB_CIDADAO ||--o{ T_URB_CIDADAO_LOGRADOURO : "possui"
+  T_URB_LOGRADOURO ||--o{ T_URB_CHAMADO : "localizado em"
+  T_URB_CIDADAO ||--o{ T_URB_CHAMADO : "abre"
+  T_URB_SUBCATEGORIA ||--o{ T_URB_CHAMADO : "classifica"
+  T_URB_CATEGORIA ||--o{ T_URB_SUBCATEGORIA : "agrupa"
+  T_URB_CHAMADO ||--o{ T_URB_HISTORICO_STATUS : "registra"
+  T_URB_CHAMADO ||--o{ T_URB_ATENDIMENTO : "recebe"
+  T_URB_CHAMADO ||--o{ T_URB_MIDIA_CHAMADO : "anexa"
+  T_URB_CHAMADO ||--o| T_URB_AVALIACAO : "avaliado por"
+  T_URB_CIDADAO ||--o| T_URB_AVALIACAO : "registra"
+  T_URB_GESTOR ||--o{ T_URB_ATENDIMENTO : "realiza"
+  T_URB_GESTOR ||--o{ T_URB_HISTORICO_STATUS : "registra"
+  T_URB_EQUIPE ||--o{ T_URB_GESTOR : "contém"
+`;
+
+const { svg } = await mermaid.render('erd-svg-main', diagram);
+document.getElementById('erd').innerHTML = svg;
+
+document.querySelectorAll('#erd svg .node').forEach(node => {
+  const firstPath = node.querySelector('path[d]');
+  if (!firstPath) return;
+  const d = firstPath.getAttribute('d');
+  const nums = d.match(/-?[\d.]+/g)?.map(Number);
+  if (!nums || nums.length < 8) return;
+  const xs = [nums[0],nums[2],nums[4],nums[6]];
+  const ys = [nums[1],nums[3],nums[5],nums[7]];
+  const x=Math.min(...xs),y=Math.min(...ys),w=Math.max(...xs)-x,h=Math.max(...ys)-y;
+  const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+  rect.setAttribute('x',x);rect.setAttribute('y',y);
+  rect.setAttribute('width',w);rect.setAttribute('height',h);rect.setAttribute('rx','8');
+  for(const a of['fill','stroke','stroke-width','class','style']){
+    if(firstPath.hasAttribute(a))rect.setAttribute(a,firstPath.getAttribute(a));
+  }
+  firstPath.replaceWith(rect);
+});
+document.querySelectorAll('#erd svg .row-rect-odd path,#erd svg .row-rect-even path').forEach(p=>{
+  p.setAttribute('stroke','none');
+});
+</script>

@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="6467F6E6-0B19-03C3-C020-5FC3C67F80C5" containerWithKeyObject="DC401D1E-AF38-60C0-55E0-BF1641EF0F15" localFKIndex="36E1E09A-EE8A-F25B-EF65-E3775DAA0382" name="FK_URB_CHAM_LOGRADOURO">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>87C3CB91-1BCF-F821-E8AA-BD623876B115</importedID>
+<referredTableLongName>T_URB_LOGRADOURO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>BA76F487-F29C-E5E1-8885-27A34D9A06CF</referredTableID>
+<keyObject>8EE9C404-F52E-B4F1-49ED-962546C68E25</keyObject>
+<referredKeyID>8EE9C404-F52E-B4F1-49ED-962546C68E25</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_LOGRADOURO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

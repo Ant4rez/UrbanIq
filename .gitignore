@@ -1,18 +1,95 @@
-# Sistema operacional
+# ============================================
+# Sistema Operacional
+# ============================================
+
+# Windows
 Thumbs.db
 desktop.ini
+*.lnk
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+
+
+# ============================================
+# Editores e IDEs
+# ============================================
 
 # VS Code
 .vscode/
 
-# Variáveis de ambiente (senhas, chaves de API)
+# JetBrains (IntelliJ, DataGrip, PyCharm)
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+
+# ============================================
+# Oracle (Data Modeler e SQL Developer)
+# ============================================
+
+*.log.*
+*.bak
+.history/
+recovery.dmd
+*.dmd.lck
+
+
+# ============================================
+# Python (Fases 4+)
+# ============================================
+
+__pycache__/
+*.py[cod]
+*.so
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+*.egg-info/
+
+
+# ============================================
+# Databricks e Power BI
+# ============================================
+
+.databrickscfg
+databricks-*.json
+*.pbix.lck
+
+
+# ============================================
+# Variáveis de ambiente e credenciais
+# ============================================
+
 .env
 .env.*
+*.pem
+*.key
+secrets/
 
+
+# ============================================
 # Arquivos temporários
+# ============================================
+
 *.tmp
 *.log
+*.swp
 
 
+# ============================================
+# Trava contra vazamento de credenciais em .txt
+# ============================================
 
+*.txt

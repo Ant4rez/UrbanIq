@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5D39F177-3D5D-2C5D-8AA2-A8A44A4022F8" containerWithKeyObject="EC5D12DB-4CDB-6C41-1E9E-5CC1F4C2F134" localFKIndex="8748DD87-A355-9AC7-66C3-B309117201C7" name="FK_URB_ATEND_GESTOR">
+<sourceDDLFile>urbaniq_ddl.sql</sourceDDLFile>
+<createdBy>thfie</createdBy>
+<createdTime>2026-04-26 00:29:55 UTC</createdTime>
+<ownerDesignName>UrbanIQ_Relacional</ownerDesignName>
+<importedID>C50ED9FB-C81E-9CFF-7C99-E4D1AC1C8804</importedID>
+<referredTableLongName>T_URB_GESTOR</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>03BD5A1B-6A22-A74B-CADF-63EA2897302D</referredTableID>
+<keyObject>5E681B0B-0DD8-437E-05AF-467722A01A4C</keyObject>
+<referredKeyID>5E681B0B-0DD8-437E-05AF-467722A01A4C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_GESTOR</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
