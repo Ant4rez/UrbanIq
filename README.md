@@ -9,7 +9,7 @@
 <br>
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-C4A882?style=for-the-badge)
-![Fase](https://img.shields.io/badge/fase-4%20de%207-3D3630?style=for-the-badge)
+![Fase](https://img.shields.io/badge/fase-5%20de%207-3D3630?style=for-the-badge)
 ![Licença](https://img.shields.io/badge/licença-acadêmica-F9F6F0?style=for-the-badge&labelColor=3D3630)
 
 ![Oracle](https://img.shields.io/badge/Oracle_21c-F80000?style=flat-square&logo=oracle&logoColor=white)
@@ -367,8 +367,8 @@ UrbanIQ/
 | **2** | Modelagem e Arquitetura (conceitual → físico) | Concluída |
 | **3** | Coleta, Ingestão e Persistência (Big Data) | Concluída |
 | **4** | Exploração e Preparação de Dados | Concluída |
-| **5** | Modelagem Analítica e Visualização | Próxima |
-| **6** | Engenharia e Governança de Dados | Planejada |
+| **5** | Modelagem Analítica e Visualização | Concluída |
+| **6** | Engenharia e Governança de Dados | Próxima |
 | **7** | Produto de Dados e Impacto Social | Planejada |
 
 ---
