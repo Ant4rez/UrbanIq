@@ -42,3 +42,20 @@
 *.zip    binary
 *.7z     binary
 *.rar    binary
+
+# ============================================
+# GitHub Linguist — refletir o trabalho real
+# ============================================
+
+# HTMLs gerados por ferramentas (Oracle DM, Python/Folium)
+fase2-modelagem/relacional/modelo/documentacao-modelo.html linguist-generated
+fase4-preparacao/mapa/mapa.html linguist-generated
+
+# Pastas internas do Oracle Data Modeler (auto-geradas com o modelo)
+fase1-descoberta/modelo-conceitual/DER_PBL_Fase1/** linguist-generated
+fase2-modelagem/relacional/modelo/UrbanIQ_Relacional/** linguist-generated
+
+# Dados sintéticos e resultados gerados
+dashboards/powerbi/dados/tb_chamado_v3.csv linguist-generated
+fase4-preparacao/data/*.csv linguist-generated
+fase4-preparacao/data/*.json linguist-generated

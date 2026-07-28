@@ -10,7 +10,7 @@
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-C4A882?style=for-the-badge)
 ![Fase](https://img.shields.io/badge/fase-5%20de%207-3D3630?style=for-the-badge)
-![Licença](https://img.shields.io/badge/licença-acadêmica-F9F6F0?style=for-the-badge&labelColor=3D3630)
+[![Licença](https://img.shields.io/badge/licença-MIT-F9F6F0?style=for-the-badge&labelColor=3D3630)](LICENSE)
 
 ![Oracle](https://img.shields.io/badge/Oracle_21c-F80000?style=flat-square&logo=oracle&logoColor=white)
 ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=flat-square&logo=databricks&logoColor=white)
@@ -150,6 +150,8 @@ Modelo físico relacional em **Oracle Database 21c**, normalizado até a **3ª F
 4. Os dados carregam automaticamente de `dashboards/powerbi/dados/tb_chamado_v3.csv` (1.000 chamados) e das dimensões em `fase3-ingestao/data/raw/`
 5. Aplique o tema `dashboards/powerbi/tema/UrbanIQ_Theme.json` se necessário (View → Themes → Browse for themes)
 
+> Sem o Power BI Desktop instalado? Veja o export estático em [`dashboards/powerbi/screenshots/urbaniq-dashboard.pdf`](dashboards/powerbi/screenshots/urbaniq-dashboard.pdf).
+
 ### Arquitetura do Modelo
 
 <div align="center">
@@ -164,6 +166,8 @@ Modelo físico relacional em **Oracle Database 21c**, normalizado até a **3ª F
 | Colunas calculadas | **3** (Faixa Prioridade, Tipo Canal, Mês/Ano Ordem) |
 
 </div>
+
+> Esse modelo de 12 tabelas é o **star schema analítico** do Power BI — não confundir com as 15 tabelas normalizadas do banco Oracle (seção [Modelo de Dados](#modelo-de-dados)). O primeiro é otimizado para consulta e DAX; o segundo, para integridade transacional.
 
 **Star Schema:** `fChamado` no centro, dimensões geográficas hierárquicas (Estado → Cidade → Bairro → Logradouro), classificação (Categoria → Subcategoria), Canal, Cidadão, e Calendário — todas com cardinalidade N:1 propagando filtros unidirecionalmente.
 
@@ -376,6 +380,15 @@ UrbanIQ/
 ## Autor
 
 **Thiago Fiel de Oliveira**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thiagofieldeoliveira/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Ant4rez)
+
+---
+
+## Licença
+
+Este projeto está licenciado sob os termos da [licença MIT](LICENSE). O contexto e os dados (cidade fictícia *Alfa*) são de uso acadêmico, no âmbito do PBL da FIAP.
 
 ---
 
