@@ -93,3 +93,9 @@ secrets/
 # ============================================
 
 *.txt
+
+# Exceções: arquivos de dependências precisam ser versionados.
+# O Streamlit Cloud e qualquer colaborador leem o requirements.txt do repositório.
+!requirements.txt
+!requirements-dev.txt
+!requirements*.txt
