@@ -17,6 +17,9 @@
 ![Delta Lake](https://img.shields.io/badge/Delta_Lake-00ADD4?style=flat-square&logo=delta&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
 ![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white)
 
 </div>
 
@@ -313,6 +316,44 @@ dashboards/powerbi/
 
 ---
 
+## Análise Estatística e Painel Analítico — Fase 5
+
+A Fase 5 parte de uma pergunta de gestão e a responde com inferência estatística:
+
+> **A cidade Alfa investiu em sensores inteligentes. Esse investimento chega até o cidadão?**
+
+Para uma ocorrência sair do mundo real e virar serviço prestado, ela percorre quatro elos. A cadeia é tão forte quanto o elo mais fraco, então cada elo foi testado separadamente.
+
+| Elo | Pergunta | Técnica | Veredito |
+|:---:|---|---|:---:|
+| **1 · Detecção** | O sensor vê o problema antes do cidadão? | Teste t de Welch, d de Cohen | Funciona |
+| **2 · Despacho** | A central aciona a equipe por prioridade? | Pearson, Spearman, qui-quadrado, V de Cramér | **Quebrado** |
+| **3 · Execução** | O serviço é igual em toda a cidade? | ANOVA, Kruskal-Wallis | Desigual |
+| **4 · Percepção** | O cidadão percebe a diferença? | Correlação e regressão linear | Confirmado |
+
+**O achado central:** o `score_prioridade` não tem relação detectável com o tempo até o despacho. A central atende por ordem de chegada, e o motor de priorização é calculado e ignorado. O ganho de tempo do sensor é devolvido por inteiro no elo seguinte.
+
+### Base de Dados
+
+Massa sintética de **10.180 ocorrências x 29 colunas**, gerada com semente fixa em `570088`, o que a torna reprodutível. Nove tipos de inconsistência foram plantados de propósito (duplicatas, nulos, datas invertidas, valores fora de faixa, rótulos sem padronização) para dar material real ao desafio de preparação. Após a limpeza restam 9.980 registros, perda de 1,96%, baixa porque o tratamento atuou na célula e não na linha.
+
+### Painel em Streamlit
+
+```bash
+pip install -r requirements.txt
+streamlit run fase5-analitica/dashboard/app_urbaniq.py
+```
+
+Filtros combinados por período, região, categoria e canal, cinco KPIs de topo, uma aba por elo da cadeia e uma aba de recomendações. O app localiza a base sozinho: se não encontrar a versão tratada, aplica as nove etapas de limpeza na hora, o que o mantém funcional mesmo publicado apenas com a base bruta.
+
+A paleta passou por seis critérios automáticos de acessibilidade: banda de luminosidade, croma mínimo, separação para protanopia, deuteranopia e tritanopia, piso de visão normal e contraste sobre o fundo.
+
+### Notebook Único
+
+`fase5-analitica/notebook/DataGuy_PBL_Fase_5.ipynb` reúne as três entregas em um arquivo só, com as saídas preservadas. Ele roda sozinho em qualquer máquina: a Parte 0 instala o que faltar e reconstrói a massa de dados caso a planilha não esteja na pasta.
+
+---
+
 ## Estrutura do Repositório
 
 ```
@@ -321,6 +362,10 @@ UrbanIQ/
 ├── LICENSE                                # Licença MIT
 ├── .gitattributes                         # Normalização de line endings e binários
 ├── .gitignore
+├── requirements.txt                       # Dependências do projeto
+│
+├── .streamlit/
+│   └── config.toml                        # Tema institucional do painel Streamlit
 │
 ├── docs/
 │   └── assets/                            # Imagens do README (diagramas)
@@ -352,13 +397,21 @@ UrbanIQ/
 │       ├── notebooks/                     # Notebooks Databricks (reservado)
 │       └── sql/                           # SQL executado no Delta Lake (reservado)
 │
-└── fase4-preparacao/                      # Exploração e Preparação de Dados
-    ├── entregaveis/                       # PDF final da Fase 4
-    ├── data/                              # Datasets processados (CSV + JSON)
-    ├── scripts/                           # Análise exploratória e integração Redis (Python)
-    ├── sql/                               # Query analítica Q2 (bairros premium)
-    ├── graficos/                          # Visualizações estáticas (PNG)
-    └── mapa/                              # Mapa interativo (HTML) + preview
+├── fase4-preparacao/                      # Exploração e Preparação de Dados
+│   ├── entregaveis/                       # PDF final da Fase 4
+│   ├── data/                              # Datasets processados (CSV + JSON)
+│   ├── scripts/                           # Análise exploratória e integração Redis (Python)
+│   ├── sql/                               # Query analítica Q2 (bairros premium)
+│   ├── graficos/                          # Visualizações estáticas (PNG)
+│   └── mapa/                              # Mapa interativo (HTML) + preview
+│
+└── fase5-analitica/                       # Inteligência Analítica e Tomada de Decisão
+    ├── entregaveis/                       # PDF final da Fase 5 + notebook entregue
+    ├── dados/                             # Massa sintética (10.180 ocorrências, XLSX)
+    ├── scripts/                           # Gerador da massa de dados (Python)
+    ├── notebook/                          # Notebook único: preparação, estatística e painel
+    ├── dashboard/                         # App Streamlit (app_urbaniq.py)
+    └── graficos/                          # Evidências de execução (PNG)
 ```
 
 ---
@@ -371,7 +424,7 @@ UrbanIQ/
 | **2** | Modelagem e Arquitetura (conceitual → físico) | Concluída |
 | **3** | Coleta, Ingestão e Persistência (Big Data) | Concluída |
 | **4** | Exploração e Preparação de Dados | Concluída |
-| **5** | Modelagem Analítica e Visualização | Concluída |
+| **5** | Inteligência Analítica, Estatística e Tomada de Decisão | Concluída |
 | **6** | Engenharia e Governança de Dados | Próxima |
 | **7** | Produto de Dados e Impacto Social | Planejada |
 
