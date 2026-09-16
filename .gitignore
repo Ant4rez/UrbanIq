@@ -99,3 +99,8 @@ secrets/
 !requirements.txt
 !requirements-dev.txt
 !requirements*.txt
+# ============================================
+# Saídas do assistente, fora do projeto
+# ============================================
+
+/UrbanIQ/
