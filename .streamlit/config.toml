@@ -1,0 +1,13 @@
+# Tema institucional UrbanIQ
+# Paleta validada para daltonismo e contraste
+
+[theme]
+base = "light"
+primaryColor = "#A07400"
+backgroundColor = "#F6F3EC"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#2E2A26"
+font = "sans serif"
+
+[server]
+headless = true
