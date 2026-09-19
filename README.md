@@ -316,6 +316,32 @@ dashboards/powerbi/
 
 ---
 
+## Métricas do Projeto
+
+Consolidado dos números do pipeline UrbanIQ ao longo das fases 2 a 5:
+
+| Camada | Métrica | Valor |
+|---|---|---|
+| **Modelo Oracle** | Tabelas | 15 |
+| **Modelo Oracle** | Chaves estrangeiras | 17 |
+| **Modelo Oracle** | Sequences | 14 |
+| **Modelo Oracle** | Índices de performance | 7 |
+| **Ingestão (Fase 3)** | CSVs de carga inicial (modelo T_URB_) | 11 |
+| **Power BI** | Chamados sintéticos gerados | 1.000 |
+| **Power BI** | Tabelas no modelo dimensional | 12 |
+| **Power BI** | Relacionamentos (Star Schema puro) | 10 |
+| **Power BI** | Medidas DAX | 16 |
+| **Power BI** | Colunas calculadas | 3 |
+| **Fase 5 — Estatística** | Ocorrências sintéticas geradas | 10.180 |
+| **Fase 5 — Estatística** | Inconsistências plantadas | 9 tipos |
+| **Fase 5 — Estatística** | Registros após limpeza | 9.980 (perda de 1,96%) |
+| **Fase 5 — Estatística** | Critérios automáticos de acessibilidade da paleta | 6 |
+| **Reprodutibilidade** | Seeds fixas | `random.seed(42)` (Power BI) e `570088` (Fase 5) |
+
+Todos os números são verificáveis nos scripts de geração e nos entregáveis em PDF de cada fase.
+
+---
+
 ## Análise Estatística e Painel Analítico — Fase 5
 
 A Fase 5 parte de uma pergunta de gestão e a responde com inferência estatística:
