@@ -1,0 +1,28 @@
+
+
+# ── UrbanIQ · modelo de mensagem de commit ──────────────────────────────
+# Linhas começando com "#" são ignoradas pelo Git.
+# Guia completo: docs/convencao-commits.md
+#
+# 1ª LINHA (assunto) — até ~60 caracteres, sem ponto final:
+#   tipo(escopo): verbo no infinitivo + o quê
+#
+#   feat(fase5): adicionar painel Streamlit do 3º desafio
+#   docs(readme): corrigir erro de digitação na seção de arquitetura
+#   chore: registrar dependências no requirements.txt
+#
+# Tipos:   feat | fix | docs | refactor | chore | data
+# Escopos: fase1..fase7 | dashboard | readme | ddl | dados | notebook
+#
+# 2ª LINHA — sempre em branco.
+#
+# CORPO (opcional, recomendado em commits grandes):
+#   - Explique o PORQUÊ da mudança, não só o quê.
+#   - Lista com "- ", sem linha em branco entre os itens.
+#   - Cite arquivos binários alterados (.pbix, .pdf, .xlsx).
+#   - Descreva fatos; evite adjetivos ("executivo", "realista", "incrível").
+#
+# Checklist:
+#   [ ] Um assunto só por commit? (se usou "e" no assunto, talvez sejam dois)
+#   [ ] Verbo no infinitivo, com acento?
+#   [ ] Tipo e escopo corretos?
