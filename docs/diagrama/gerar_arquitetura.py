@@ -112,7 +112,7 @@ C_Y = 780
 c1 = d.card(170, C_Y, 220, "python", "Massa sintética", ["10.180 ocorrências × 29 col.", "seed 570088", "9 tipos de inconsistência"], "#3776AB", icon_size=36)
 c2 = d.card(470, C_Y, 220, "python", "Preparação (pandas)", ["9 etapas de limpeza", "9.980 registros", "perda de 1,96%"], "#3776AB", icon_size=36)
 c3 = d.card(770, C_Y, 220, "python", "Inferência estatística", ["Welch · qui-quadrado", "ANOVA · Kruskal-Wallis", "correlação e regressão"], P["ml"], icon_size=36)
-c4 = d.card(1070, C_Y, 220, "client", "Painel Streamlit", ["filtros e 5 KPIs", "uma aba por elo", "+ notebook reprodutível"], "#E0301E", icon_size=36)
+c4 = d.card(1070, C_Y, 220, "client", "Painel Streamlit (ao vivo)", ["urbaniq.streamlit.app", "filtros, 5 KPIs, aba por elo", "+ notebook reprodutível"], "#E0301E", icon_size=36)
 for a, b, lab in [(c1, c2, "limpa"), (c2, c3, "testa"), (c3, c4, "publica")]:
     y = a[1] + 60
     d.arrow([(a[0] + a[2], y), (b[0], y)], P["gray"], label=lab, label_at=((a[0] + a[2] + b[0]) / 2, y - 8), label_anchor="middle", label_color=P["gray"])

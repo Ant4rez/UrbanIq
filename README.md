@@ -21,6 +21,8 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white)
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://urbaniq.streamlit.app)
+
 </div>
 
 ---
@@ -364,6 +366,10 @@ Para uma ocorrência sair do mundo real e virar serviço prestado, ela percorre 
 Massa sintética de **10.180 ocorrências x 29 colunas**, gerada com semente fixa em `570088`, o que a torna reprodutível. Nove tipos de inconsistência foram plantados de propósito (duplicatas, nulos, datas invertidas, valores fora de faixa, rótulos sem padronização) para dar material real ao desafio de preparação. Após a limpeza restam 9.980 registros, perda de 1,96%, baixa porque o tratamento atuou na célula e não na linha.
 
 ### Painel em Streamlit
+
+**Painel ao vivo:** [https://urbaniq.streamlit.app](https://urbaniq.streamlit.app) (Streamlit Community Cloud; após um período sem acesso, a primeira abertura leva cerca de 30 segundos).
+
+Para rodar localmente:
 
 ```bash
 pip install -r requirements.txt
