@@ -64,6 +64,35 @@ st.markdown(
           background: #FFFFFF; border-left: 5px solid {OURO};
           padding: 16px 20px; border-radius: 4px; margin: 10px 0;
       }}
+
+      /* Abas dos elos (Streamlit 1.63: abas react-aria com data-testid="stTab").
+         Botões maiores, com destaque na aba ativa. */
+      [data-testid="stTabs"] [role="tablist"] {{
+          gap: 10px; padding: 6px 4px 12px 4px;
+      }}
+      /* remove a linha cinza de fundo da lista de abas */
+      [data-testid="stTabs"] [role="tablist"]::after {{ display: none; }}
+      [data-testid="stTabs"] [data-testid="stTab"] {{
+          height: auto; padding: 10px 22px;
+          background: #FFFFFF; border: 1.5px solid #E2DCD0; border-radius: 10px;
+          box-shadow: 0 1px 2px rgba(46, 42, 38, 0.06);
+          color: {SUAVE};
+          transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      }}
+      [data-testid="stTabs"] [data-testid="stTab"] p {{
+          font-size: 1.05rem; font-weight: 600; color: inherit;
+      }}
+      [data-testid="stTabs"] [data-testid="stTab"][data-hovered] {{
+          border-color: {OURO}; color: {TINTA};
+          box-shadow: 0 2px 6px rgba(160, 116, 0, 0.14);
+      }}
+      [data-testid="stTabs"] [data-testid="stTab"][data-selected] {{
+          background: #FBEFD2; border: 2px solid {OURO}; color: {TINTA};
+          box-shadow: 0 2px 6px rgba(160, 116, 0, 0.18);
+      }}
+      [data-testid="stTabs"] [data-testid="stTab"][data-selected] p {{ font-weight: 700; }}
+      /* esconde o sublinhado padrão da aba ativa (a borda já faz o destaque) */
+      [data-testid="stTabs"] [data-testid="stTab"] .react-aria-SelectionIndicator {{ display: none; }}
     </style>
     """,
     unsafe_allow_html=True,
