@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="docs/assets/logo-urbaniq.png" alt="UrbanIQ" width="460">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-urbaniq-transparente-escuro.png">
+  <img src="docs/assets/logo-urbaniq-transparente-claro.png" alt="UrbanIQ" width="460">
+</picture>
 
 ### Plataforma Inteligente de Gestão de Chamados Urbanos
 
