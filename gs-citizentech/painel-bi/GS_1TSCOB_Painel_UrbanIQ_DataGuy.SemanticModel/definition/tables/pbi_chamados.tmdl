@@ -1,0 +1,231 @@
+table pbi_chamados
+	lineageTag: addd7d81-54da-4e87-a3dd-12cbc5083062
+
+	/// Chamados de zeladoria abertos no periodo filtrado
+	measure 'Total de Chamados' = COUNTROWS(pbi_chamados)
+		formatString: #,0
+		displayFolder: KPIs
+		lineageTag: e0a6c248-d7ae-4771-8143-be5a078b9c26
+
+	measure 'Chamados por Dia' = DIVIDE([Total de Chamados], COUNTROWS(VALUES(pbi_chamados[dt_abertura])))
+		formatString: #,0
+		displayFolder: KPIs
+		lineageTag: c18b004b-fc9e-40d4-b163-c2880ecf11bb
+
+	/// Populacao (Censo 2022) das subprefeituras presentes no filtro
+	measure Habitantes = CALCULATE(SUM(pbi_subprefeituras[pop_2022]), TREATAS(VALUES(pbi_chamados[subprefeitura]), pbi_subprefeituras[subprefeitura_chave]))
+		formatString: #,0
+		displayFolder: KPIs
+		lineageTag: 8822fa73-ef8f-45bf-b27c-775503c132fa
+
+	/// Chamados por 1.000 habitantes no periodo filtrado (6 meses sem filtro de data)
+	measure 'Chamados por Mil Hab' = DIVIDE([Total de Chamados], [Habitantes]) * 1000
+		formatString: 0.0
+		displayFolder: KPIs
+		lineageTag: 421ac36f-2341-4288-930e-2ae0bbae4518
+
+	/// Mediana de dias entre abertura e finalizacao (so finalizados)
+	measure 'Mediana de Dias' = CALCULATE(MEDIAN(pbi_chamados[dias_atendimento]), pbi_chamados[status] = "Finalizada")
+		formatString: 0.0
+		displayFolder: KPIs
+		lineageTag: ca60ce61-324a-4f8c-9e69-9bad4b4c7077
+
+	measure 'Media de Dias' = CALCULATE(AVERAGE(pbi_chamados[dias_atendimento]), pbi_chamados[status] = "Finalizada")
+		formatString: 0.0
+		displayFolder: KPIs
+		lineageTag: 0fb5341e-2106-4845-8f55-6f713653d942
+
+	measure '% Resolvido em 7 Dias' = DIVIDE(SUM(pbi_chamados[resolvido_7d]), CALCULATE(COUNTROWS(pbi_chamados), pbi_chamados[status] = "Finalizada"))
+		formatString: 0.0%
+		displayFolder: KPIs
+		lineageTag: c503a1a9-9144-47c6-9712-a11e379f2d03
+
+	measure '% Em Aberto' = DIVIDE(CALCULATE(COUNTROWS(pbi_chamados), pbi_chamados[status] = "Aberto"), [Total de Chamados])
+		formatString: 0.0%
+		displayFolder: KPIs
+		lineageTag: 24a2fe25-07e4-46de-a991-9ad7e89285fa
+
+	/// Fatia dos canais nao digitais/assistidos
+	measure '% Telefone ou WhatsApp' = DIVIDE(CALCULATE(COUNTROWS(pbi_chamados), pbi_chamados[canal_nome] IN {"Telefone 156", "WhatsApp"}), CALCULATE(COUNTROWS(pbi_chamados), pbi_chamados[canal_nome] <> "Outros"))
+		formatString: 0.0%
+		displayFolder: KPIs
+		lineageTag: 03e4a612-d272-491e-9156-b10110c88eb3
+
+	/// Participacao do canal dentro do contexto (usar no grafico de canal 100%)
+	measure '% do Total' = DIVIDE([Total de Chamados], CALCULATE([Total de Chamados], ALLSELECTED(pbi_chamados[canal_nome])))
+		formatString: 0.0%
+		displayFolder: Apoio
+		lineageTag: 497fcc54-0381-4e19-ab08-5ce8a7a01c7e
+
+	/// 0 = territorio que mais pede por habitante; 1 = que menos pede
+	measure 'Indice de Subnotificacao' = AVERAGE(pbi_subprefeituras[indice_subnotificacao])
+		formatString: 0.00
+		displayFolder: KPIs
+		lineageTag: ba7ae941-e84c-469a-8bae-aff2effc1342
+
+	measure 'Titulo Dinamico' = "Zeladoria urbana em SP | " & IF(ISFILTERED(pbi_subprefeituras[anel]), CONCATENATEX(VALUES(pbi_subprefeituras[anel]), pbi_subprefeituras[anel], ", "), "Todos os aneis")
+		displayFolder: Apoio
+		lineageTag: 048be924-67c0-4c31-8c0c-975e866d9bab
+
+	column dt_abertura
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: ca8fee7a-ffe1-42bd-9a1a-b92922e3f5b6
+		summarizeBy: none
+		sourceColumn: dt_abertura
+
+		variation Variação
+			isDefault
+			relationship: c152d718-8d37-4e87-a0cc-ab7aeb70f900
+			defaultHierarchy: LocalDateTable_bc70c6c0-edb6-4aad-a57f-9d7e39547a88.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dt_finalizacao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 28788fe6-4f8c-46f7-8046-6385a8a0a6f2
+		summarizeBy: none
+		sourceColumn: dt_finalizacao
+
+		variation Variação
+			isDefault
+			relationship: ad10f032-b077-4127-8dec-e451cae77792
+			defaultHierarchy: LocalDateTable_4e2825e0-fccc-4a7b-8759-746b9467c802.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column trimestre
+		dataType: string
+		lineageTag: 7613dca2-63c2-4c13-ba2e-bf42b029894d
+		summarizeBy: none
+		sourceColumn: trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column canal
+		dataType: string
+		lineageTag: 38227eb9-a1e8-4c01-863e-69fa46d11021
+		summarizeBy: none
+		sourceColumn: canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column servico
+		dataType: string
+		lineageTag: 6a7c96fe-1af0-44b5-adbf-a7804ca4ecde
+		summarizeBy: none
+		sourceColumn: servico
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 6ac34b33-7bbd-47ad-8b72-d44544f4e8b3
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column subprefeitura
+		dataType: string
+		isHidden
+		lineageTag: 4a5e24d0-5e26-47dd-807c-37b737aa0269
+		summarizeBy: none
+		sourceColumn: subprefeitura
+
+		annotation SummarizationSetBy = Automatic
+
+	column distrito
+		dataType: string
+		lineageTag: 0fcb8c1c-3bb4-4b8a-a394-d2a2ff7d4b8f
+		summarizeBy: none
+		sourceColumn: distrito
+
+		annotation SummarizationSetBy = Automatic
+
+	column anel
+		dataType: string
+		isHidden
+		lineageTag: 30e78163-3139-4f50-a324-f81d3b595432
+		summarizeBy: none
+		sourceColumn: anel
+
+		annotation SummarizationSetBy = Automatic
+
+	column lat
+		dataType: double
+		lineageTag: 67e0980a-d092-44c2-98e3-028eaebf4e1b
+		dataCategory: Latitude
+		summarizeBy: none
+		sourceColumn: lat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lon
+		dataType: double
+		lineageTag: 53c41e51-2943-4f0b-be62-8a230321e3c6
+		dataCategory: Longitude
+		summarizeBy: none
+		sourceColumn: lon
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column km_marco_zero
+		dataType: double
+		lineageTag: d400bb38-01d0-4ef4-80d7-82e709bcde9b
+		summarizeBy: sum
+		sourceColumn: km_marco_zero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dias_atendimento
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a69ac8a-136c-43b5-8b01-603da2d3d993
+		summarizeBy: none
+		sourceColumn: dias_atendimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column canal_nome
+		dataType: string
+		lineageTag: f4dfaa48-f553-472d-9aad-68863112a9eb
+		summarizeBy: none
+		sourceColumn: canal_nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolvido_7d
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e9b3935b-4d5c-485e-b449-eb31b972f5a0
+		summarizeBy: sum
+		sourceColumn: resolvido_7d
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pbi_chamados = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\thfie\Documents\Programação\FIAP\urbaniq\gs-citizentech\painel-bi\dados\pbi_chamados.csv"),[Delimiter=";", Columns=15, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"dt_abertura", type date}, {"dt_finalizacao", type date}, {"trimestre", type text}, {"canal", type text}, {"servico", type text}, {"status", type text}, {"subprefeitura", type text}, {"distrito", type text}, {"anel", type text}, {"lat", type number}, {"lon", type number}, {"km_marco_zero", type number}, {"dias_atendimento", Int64.Type}, {"canal_nome", type text}, {"resolvido_7d", Int64.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

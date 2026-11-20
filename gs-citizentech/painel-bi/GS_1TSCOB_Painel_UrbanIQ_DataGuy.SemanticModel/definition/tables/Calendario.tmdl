@@ -1,0 +1,31 @@
+/// Calendario do periodo analisado (abr a set/2026)
+table Calendario
+	lineageTag: 4c402ef1-aa98-4eb3-80f7-f1da63b1fa47
+
+	column Date
+		formatString: dd/mm/yyyy
+		lineageTag: e323cd85-6141-4ab7-9ec9-3d8af0d4bfbf
+		isNameInferred
+		sourceColumn: [Date]
+
+	column Mes
+		lineageTag: 331938a8-c92a-4df2-989b-eaac9978c2eb
+		isNameInferred
+		sourceColumn: [Mes]
+		sortByColumn: MesNum
+
+	column MesNum
+		isHidden
+		lineageTag: 5e86db19-7778-4c65-932a-fc833a611434
+		isNameInferred
+		sourceColumn: [MesNum]
+
+	column Trimestre
+		lineageTag: 9ed9c639-e6ed-486f-a7af-9f9c453f93b0
+		isNameInferred
+		sourceColumn: [Trimestre]
+
+	partition Calendario = calculated
+		mode: import
+		source = ADDCOLUMNS(CALENDAR(DATE(2026,4,1), DATE(2026,9,30)), "Mes", FORMAT([Date], "mmm/yy"), "MesNum", MONTH([Date]), "Trimestre", "T" & QUARTER([Date]) & "/2026")
+

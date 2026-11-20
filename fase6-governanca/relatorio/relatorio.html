@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>UrbanIQ - PBL Fase 6 - Dados Mestres do Cidadão</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --fundo: #F6F3EC; --tinta: #2E2A26; --escuro: #3D3630; --ouro: #A07400;
+    --linha: #D5CDBC; --faixa: #ECE6D8; --suave: #6E665C; --branco: #FFFFFF;
+    --verde: #4C7A1E; --vermelho: #B5341C;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--fundo); }
+  body { font-family: "DejaVu Serif", Georgia, serif; font-size: 8.6pt; line-height: 1.5; color: var(--tinta);
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pagina { width: 210mm; height: 297mm; padding: 13mm 16mm 17mm; position: relative; overflow: hidden;
+            page-break-after: always; background: var(--fundo); }
+  .pagina:last-child { page-break-after: auto; }
+
+  /* Cabecalho e rodape */
+  .topo { border-top: 2.2pt solid var(--ouro); border-bottom: 0.6pt solid var(--escuro); padding: 5pt 0 6pt;
+          display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 11pt; }
+  .topo .marca { font-weight: bold; font-size: 14pt; line-height: 1.1; }
+  .topo .lema { font-style: italic; font-size: 7pt; color: var(--suave); }
+  .selo { font-family: "Liberation Sans", "DejaVu Sans", sans-serif; background: var(--escuro); color: #fff; font-size: 5.8pt;
+          letter-spacing: 0.18em; padding: 3pt 8pt; margin-top: 2pt; white-space: nowrap; }
+  .rodape { position: absolute; left: 16mm; right: 16mm; bottom: 8mm; border-top: 0.6pt solid var(--linha); padding-top: 4pt;
+            font-style: italic; font-size: 6.6pt; color: var(--suave); display: flex; justify-content: space-between; }
+
+  /* Titulos */
+  h1 { font-size: 11.5pt; letter-spacing: 0.13em; text-transform: uppercase; margin: 0 0 9pt; padding-bottom: 5pt;
+       border-bottom: 0.6pt solid var(--linha); }
+  h2 { font-size: 9.6pt; margin: 11pt 0 5pt; display: flex; align-items: center; gap: 6pt; }
+  h2 .n { font-family: "Liberation Sans", "DejaVu Sans", sans-serif; background: var(--ouro); color: #fff; border-radius: 50%;
+          width: 13pt; height: 13pt; font-size: 7pt; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  p { margin: 0 0 6pt; text-align: justify; }
+  .abre { font-size: 9.2pt; font-style: italic; color: var(--escuro); margin-bottom: 8pt; text-align: left; }
+  code, .mono { font-family: "DejaVu Sans Mono", monospace; font-size: 7.4pt; }
+  p code, td code, li code { background: var(--faixa); padding: 0 2pt; }
+
+  /* Tabelas */
+  table { width: 100%; border-collapse: collapse; font-family: "Liberation Sans", "DejaVu Sans", sans-serif; font-size: 7.3pt;
+          line-height: 1.35; margin: 3pt 0 4pt; }
+  th { background: var(--escuro); color: #fff; text-align: left; padding: 3.5pt 6pt; font-size: 6.6pt; letter-spacing: 0.04em; }
+  td { padding: 3.5pt 6pt; border-bottom: 0.5pt solid var(--linha); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--faixa); }
+  td.rot { font-weight: bold; white-space: nowrap; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  .legtab { font-family: "Liberation Sans", "DejaVu Sans", sans-serif; font-size: 6.6pt; color: var(--suave); margin: 0 0 7pt; text-align: left; }
+  .legtab b { color: var(--tinta); }
+
+  /* Blocos */
+  .nota { background: var(--faixa); border-left: 2.4pt solid var(--ouro); padding: 6pt 9pt; margin: 6pt 0 8pt;
+          font-size: 8pt; }
+  .nota p:last-child { margin-bottom: 0; }
+  .nota b.t { font-family: "Liberation Sans", "DejaVu Sans", sans-serif; font-size: 6.6pt; letter-spacing: 0.12em; text-transform: uppercase;
+              color: var(--ouro); display: block; margin-bottom: 2pt; }
+  pre { font-family: "DejaVu Sans Mono", monospace; font-size: 6.5pt; line-height: 1.42; background: var(--branco);
+        border: 0.6pt solid var(--linha); padding: 6pt 8pt; margin: 3pt 0 3pt; white-space: pre; overflow: hidden; }
+  pre .c { color: #7A7266; } pre .k { color: #1F4E9C; font-weight: bold; } pre .s { color: #8A5A00; }
+  .cartoes { display: flex; gap: 8pt; margin: 4pt 0 6pt; }
+  .cartao { flex: 1; background: var(--branco); border-left: 2.4pt solid var(--ouro); padding: 6pt 9pt; font-size: 7.6pt; }
+  .cartao.azul { border-left-color: #1F4E9C; }
+  .cartao b { display: block; font-size: 8.2pt; margin-bottom: 2pt; }
+  .cartao p { text-align: left; margin: 0; }
+  .numeros { display: flex; gap: 8pt; margin: 6pt 0 8pt; }
+  .numero { flex: 1; background: var(--branco); border-top: 2.2pt solid var(--ouro); padding: 6pt 8pt 7pt; text-align: center; }
+  .numero .v { font-size: 19pt; font-weight: bold; line-height: 1.1; }
+  .numero .r { font-family: "Liberation Sans", "DejaVu Sans", sans-serif; font-size: 6.4pt; letter-spacing: 0.08em; text-transform: uppercase;
+               color: var(--suave); }
+  .numero.bom { border-top-color: var(--verde); } .numero.alerta { border-top-color: var(--vermelho); }
+
+  /* Figuras */
+  figure { margin: 5pt 0 7pt; break-inside: avoid; }
+  figure img { display: block; width: 100%; border: 0.6pt solid var(--linha); background: #fff; }
+  figure.media img { width: 74%; margin: 0 auto; }
+  figure.pequena img { width: 62%; margin: 0 auto; }
+  .numeros.grade { flex-wrap: wrap; } .numeros.grade .numero { flex: 1 1 40%; }
+  figcaption { font-family: "Liberation Sans", "DejaVu Sans", sans-serif; font-size: 6.9pt; line-height: 1.4; color: var(--suave);
+               margin-top: 4pt; text-align: center; }
+  figcaption b { color: var(--tinta); }
+  figcaption .fonte { display: block; font-size: 6.2pt; font-style: italic; }
+  .duas { display: flex; gap: 10pt; align-items: flex-start; }
+  .duas > * { flex: 1; min-width: 0; }
+
+  /* Capa: padrao das entregas anteriores (fundo da cidade, faixas e painel de identificacao) */
+  .capa { padding: 0; font-family: "Carlito", "Liberation Sans", sans-serif; }
+  .capa .fundo { position: absolute; left: 0; top: 0; width: 210mm; height: auto; }
+  .capa .cab { position: absolute; left: 0; right: 0; top: 0; height: 33mm; background: rgba(248, 246, 242, 0.88); }
+  .capa .cab .fio-grosso { position: absolute; left: 10mm; right: 10mm; top: 5.5mm; border-top: 3pt solid #C4A882; }
+  .capa .cab .marca { position: absolute; left: 10mm; top: 9.5mm; font-family: "DejaVu Serif", serif; font-weight: bold;
+                      font-size: 26pt; line-height: 1.2; color: #2E2A26; }
+  .capa .cab .selo-capa { position: absolute; right: 10mm; top: 8.5mm; background: #3D3630; color: #fff; font-weight: bold;
+                          font-size: 9.4pt; padding: 11pt 30pt; }
+  .capa .fio-fino { position: absolute; left: 10mm; right: 10mm; top: 34.5mm; border-top: 1pt solid #C4A882; }
+  .capa .painel { position: absolute; left: 0; right: 0; top: 214mm; bottom: 0; background: #F2EDE6; border-top: 1.6pt solid #C4A882; }
+  .capa .tarja { position: absolute; left: 10mm; right: 10mm; top: 4mm; background: #3D3630; color: #fff; text-align: center;
+                 font-weight: bold; font-size: 8.6pt; letter-spacing: 0.16em; padding: 7.5pt 0; }
+  .capa .ficha { position: absolute; left: 11.5mm; right: 10mm; top: 19.5mm; font-size: 11pt; line-height: 1.2; color: #2E2A26; }
+  .capa .ficha .caixa { position: absolute; left: 0; top: 0.2mm; width: 6.2mm; height: 6.2mm; border: 1.5pt solid #2E2A26; border-radius: 1.2pt; }
+  .capa .ficha div.linha { margin: 0 0 6.6mm 10.5mm; }
+  .capa .assina { position: absolute; right: 10mm; bottom: 5mm; font-style: italic; font-size: 7.6pt; color: #6E665C; }
+</style>
+</head>
+<body>
+
+<!-- ============================ CAPA ============================ -->
+<section class="pagina capa">
+  <img class="fundo" src="img/capa-fundo.jpg" alt="">
+  <div class="cab">
+    <div class="fio-grosso"></div>
+    <div class="marca">UrbanIQ</div>
+    <div class="selo-capa">Fase 6 &nbsp;|&nbsp; Entrega Única</div>
+  </div>
+  <div class="fio-fino"></div>
+  <div class="painel">
+    <div class="tarja">FASE 6: ENTREGA ÚNICA &nbsp;·&nbsp; DADOS MESTRES DO CIDADÃO</div>
+    <div class="ficha">
+      <span class="caixa"></span>
+      <div class="linha"><b>Desafio:</b> Cidade Alfa, Dados Mestres do Cidadão (MDM)</div>
+      <div class="linha"><b>Grupo:</b> DataGuy</div>
+      <div class="linha"><b>Integrante:</b> Thiago Fiel de Oliveira</div>
+      <div class="linha"><b>RM:</b> 570088</div>
+    </div>
+    <div class="assina">Thiago Fiel de Oliveira &nbsp;|&nbsp; RM 570088 &nbsp;|&nbsp; FIAP 2026</div>
+  </div>
+</section>
+
+<!-- ============================ PAGINA 2 ============================ -->
+<section class="pagina">
+  <div class="topo">
+    <div><div class="marca">UrbanIQ</div><div class="lema">Plataforma Inteligente de Gestão de Chamados Urbanos</div></div>
+    <div class="selo">FASE 6 &nbsp;|&nbsp; VISÃO GERAL</div>
+  </div>
+  <h1>Mapa da entrega</h1>
+  <table>
+    <tr><th style="width:25%">Item</th><th>Definição</th></tr>
+    <tr><td class="rot">Desafio</td><td>Evoluir o Master Data Management (MDM) da cidade Alfa, consolidando o cadastro do cidadão a partir de dois sistemas legados</td></tr>
+    <tr><td class="rot">Grupo e integrante</td><td>DataGuy: Thiago Fiel de Oliveira, RM 570088, Turma 1TSCO</td></tr>
+    <tr><td class="rot">Origens de dados</td><td><code>SRC_PREFEITURA_CIDADAO.CSV</code> e <code>SRC_RECEITA_FEDERAL.CSV</code>, com 100 cidadãos cada</td></tr>
+    <tr><td class="rot">Destino</td><td>Tabela de dados mestres <code>T_MDM_CIDADAO</code>, com um registro por CPF</td></tr>
+    <tr><td class="rot">Ambiente</td><td>SGBD Oracle da FIAP, acessado pelo Oracle SQL Developer (conexão <code>ORACLE_FIAP_ON</code>)</td></tr>
+    <tr><td class="rot">Execução das evidências</td><td>05/10/2026</td></tr>
+  </table>
+  <p class="legtab"><b>Tabela 1.</b> Identificação da entrega. Fonte: elaborada pelo autor (2026).</p>
+
+  <h2><span class="n">1</span>O problema a ser resolvido</h2>
+  <p>Na cidade Alfa, o mesmo cidadão está cadastrado na Prefeitura Municipal e na Receita Federal. Os dois sistemas nasceram com objetivos diferentes e guardam o dado cada um do seu jeito: a data de nascimento vem em formatos distintos, o sexo usa códigos que não se correspondem e o nome aparece com título em um cadastro e sem título no outro.</p>
+  <p>Enquanto não existir uma versão única desse cadastro, qualquer indicador sobre a população parte de uma base frágil. O risco é concreto: benefício concedido em duplicidade, cidadão não localizado por divergência cadastral e programa social dimensionado para um público que não existe.</p>
+  <div class="nota"><b class="t">Objetivo da fase</b>
+    <p>Consolidar as duas origens em um registro mestre por CPF, com regras de qualidade aplicadas em PL/SQL, e entregar à gestão pública uma visão analítica construída sobre esse registro.</p></div>
+
+  <h2><span class="n">2</span>A solução em três camadas</h2>
+  <figure>
+    <svg viewBox="0 0 760 232" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block" font-family="Liberation Sans, DejaVu Sans, sans-serif">
+      <defs><marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3D3630"/></marker></defs>
+      <g fill="#FFFFFF" stroke="#3D3630" stroke-width="1">
+        <rect x="2" y="8" width="226" height="90" rx="4"/><rect x="267" y="8" width="226" height="90" rx="4"/>
+        <rect x="532" y="134" width="226" height="90" rx="4"/><rect x="2" y="134" width="226" height="90" rx="4"/>
+      </g>
+      <g fill="#F3E9CF" stroke="#A07400" stroke-width="2">
+        <rect x="532" y="8" width="226" height="90" rx="4"/><rect x="267" y="134" width="226" height="90" rx="4"/>
+      </g>
+      <g stroke="#3D3630" stroke-width="1.2" fill="none">
+        <path d="M228 53H266" marker-end="url(#seta)"/><path d="M493 53H531" marker-end="url(#seta)"/>
+        <path d="M645 98V133" marker-end="url(#seta)"/><path d="M532 179H494" marker-end="url(#seta)"/><path d="M267 179H229" marker-end="url(#seta)"/>
+      </g>
+      <g fill="#2E2A26" font-size="12.5" font-weight="bold">
+        <text x="16" y="32">1 · Arquivos legados</text><text x="281" y="32">2 · Área de stage</text><text x="546" y="32">3 · Processamento PL/SQL</text>
+        <text x="546" y="158">4 · Dado mestre</text><text x="281" y="158">5 · View analítica</text><text x="16" y="158">6 · Gestão pública</text>
+      </g>
+      <g fill="#2E2A26" font-size="10.5">
+        <text x="16" y="52">SRC_PREFEITURA_CIDADAO.CSV</text><text x="16" y="68">SRC_RECEITA_FEDERAL.CSV</text>
+        <text x="281" y="52">T_SRC_PREFEITURA_CIDADAO</text><text x="281" y="68">T_SRC_RECEITA_FEDERAL</text>
+        <text x="546" y="52">Script de carga, versão 2</text><text x="546" y="68">Cruza por CPF e aplica as regras</text>
+        <text x="546" y="178">T_MDM_CIDADAO</text><text x="546" y="194">1 registro por CPF</text>
+        <text x="281" y="178">V_MDM_FX_ETARIA_ESCOLARIDADE</text><text x="281" y="194">População por faixa e escolaridade</text>
+        <text x="16" y="178">Consulta a view</text><text x="16" y="194">Direciona programas sociais</text>
+      </g>
+      <g fill="#6E665C" font-size="9.5" font-style="italic">
+        <text x="16" y="86">100 linhas em cada arquivo</text><text x="281" y="86">dado bruto, sem transformação</text>
+        <text x="546" y="86">1ª entrega desta fase</text><text x="546" y="212">67 sem divergência, 33 sinalizados</text>
+        <text x="281" y="212">2ª entrega desta fase</text><text x="16" y="212">consumo da informação</text>
+      </g>
+    </svg>
+    <figcaption><b>Figura 1.</b> Fluxo da solução: do arquivo legado à informação para o gestor. Os blocos em destaque são as duas entregas desta fase.
+      <span class="fonte">Fonte: elaborada pelo autor (2026), com base na arquitetura do capítulo.</span></figcaption>
+  </figure>
+
+  <h2><span class="n">3</span>Entregáveis desta fase</h2>
+  <div class="cartoes">
+    <div class="cartao"><b>1ª entrega: carga dos dados mestres</b><p><span class="mono">script_carrega_dados_T_MDM_CIDADAO_v2.sql</span><br>Evolução do script v1 com as regras de idade, faixa etária, sexo e escolaridade.</p></div>
+    <div class="cartao azul"><b>2ª entrega: visão analítica</b><p><span class="mono">cria_view_qtd_total_fx_etaria_escolaridade.sql</span><br>View lógica com a quantidade de cidadãos por faixa etária e escolaridade.</p></div>
+  </div>
+  <div class="rodape"><span>Thiago Fiel de Oliveira | RM 570088 | Grupo DataGuy | FIAP 2026</span><span>2</span></div>
+</section>
+
+<!-- ============================ PAGINA 3 ============================ -->
+<section class="pagina">
+  <div class="topo">
+    <div><div class="marca">UrbanIQ</div><div class="lema">Plataforma Inteligente de Gestão de Chamados Urbanos</div></div>
+    <div class="selo">FASE 6 &nbsp;|&nbsp; DIAGNÓSTICO</div>
+  </div>
+  <h1>O ponto de partida: dois cadastros que não concordam</h1>
+  <p class="abre">Antes de escrever qualquer regra, foi preciso entender o que cada origem traz e onde elas divergem.</p>
+
+  <h2><span class="n">1</span>As origens carregadas na área de stage</h2>
+  <p>Os dois arquivos CSV foram importados pelo assistente do SQL Developer para as tabelas <code>T_SRC_PREFEITURA_CIDADAO</code> e <code>T_SRC_RECEITA_FEDERAL</code>, sem nenhuma transformação. A área de stage guarda o dado exatamente como veio do legado, o que permite reprocessar a carga sempre que uma regra mudar.</p>
+  <figure>
+    <img src="img/01-origens-carregadas.png" alt="Contagem de linhas das tabelas de origem">
+    <figcaption><b>Figura 2.</b> Contagem de linhas das duas tabelas de origem: 100 cidadãos em cada sistema legado.
+      <span class="fonte">Fonte: execução do autor no Oracle SQL Developer (2026).</span></figcaption>
+  </figure>
+
+  <h2><span class="n">2</span>O que a análise das origens revelou</h2>
+  <p>Os 100 CPFs existem nas duas origens e no mesmo formato, o que torna o CPF uma chave segura para o cruzamento. O conteúdo das demais colunas, porém, apresenta os problemas resumidos a seguir. Cada um deles virou uma regra de tratamento no script de carga.</p>
+  <table>
+    <tr><th style="width:27%">Problema encontrado</th><th style="width:22%">Onde ocorre</th><th class="num" style="width:10%">Cidadãos</th><th>Tratamento no dado mestre</th></tr>
+    <tr><td class="rot">Data em formatos diferentes</td><td>Receita DD/MM/AAAA e Prefeitura MM/DD/AAAA</td><td class="num">100</td><td>Conversão com a máscara de cada origem antes da comparação</td></tr>
+    <tr><td class="rot">Data inválida (99/99/9999)</td><td>Receita Federal</td><td class="num">3</td><td>Data, idade e faixa etária ficam nulas e a divergência é registrada</td></tr>
+    <tr><td class="rot">Data em branco</td><td>Prefeitura</td><td class="num">3</td><td>Data, idade e faixa etária ficam nulas e a divergência é registrada</td></tr>
+    <tr><td class="rot">Nome com título, incompleto ou com sufixo numérico</td><td>Prefeitura (SR., DRA.) e Receita (sufixo 123)</td><td class="num">27</td><td>Prevalece o nome da Receita em maiúsculas e a divergência é registrada</td></tr>
+    <tr><td class="rot">Sexo em domínios incompatíveis</td><td>Receita F e M, Prefeitura 1 e 2</td><td class="num">100</td><td>Conversão para o domínio único MASCULINO e FEMININO</td></tr>
+    <tr><td class="rot">Sexo fora do domínio (valor 3)</td><td>Prefeitura</td><td class="num">1</td><td>Prevalece a Receita e a divergência é registrada</td></tr>
+    <tr><td class="rot">Escolaridade com código numérico</td><td>Receita Federal (ex.: 4-POS)</td><td class="num">96</td><td>Remoção do código e do hífen, mantendo o texto em maiúsculas</td></tr>
+    <tr><td class="rot">Escolaridade sem código</td><td>Receita Federal (SUPERIOR_INCOMPLETO)</td><td class="num">4</td><td>Texto mantido como está</td></tr>
+  </table>
+  <p class="legtab"><b>Tabela 2.</b> Problemas de qualidade identificados nas origens e o tratamento adotado. Fonte: elaborada pelo autor (2026), a partir da análise dos dois arquivos de origem.</p>
+
+  <div class="nota"><b class="t">Por que isso importa</b>
+    <p>Dois dos oito problemas só aparecem quando se olha o dado com atenção: o valor 3 no sexo da Prefeitura e os 4 registros de escolaridade sem código. Uma regra escrita só a partir da descrição da planilha, sem olhar o conteúdo, trataria errado justamente esses casos.</p></div>
+  <div class="rodape"><span>Thiago Fiel de Oliveira | RM 570088 | Grupo DataGuy | FIAP 2026</span><span>3</span></div>
+</section>
+
+<!-- ============================ PAGINA 4 ============================ -->
+<section class="pagina">
+  <div class="topo">
+    <div><div class="marca">UrbanIQ</div><div class="lema">Plataforma Inteligente de Gestão de Chamados Urbanos</div></div>
+    <div class="selo">FASE 6 &nbsp;|&nbsp; 1ª ENTREGA</div>
+  </div>
+  <h1>As regras de negócio implementadas no script v2</h1>
+  <p class="abre">O script v1 do exercício guiado deixava quatro colunas em branco. A versão 2 preenche cada uma seguindo a planilha de regras de negócio.</p>
+
+  <h2><span class="n">1</span>O que mudou do v1 para o v2</h2>
+  <p>O v2 parte do v1 e preserva tudo o que já funcionava: o cursor sobre a Prefeitura, a busca na Receita por CPF e as regras de nome, data de nascimento e estado civil. As alterações se concentram em quatro blocos novos de regra, colocados depois do tratamento da data de nascimento, porque idade e faixa etária dependem dela. As quatro colunas também foram incluídas no <code>INSERT</code> e no <code>UPDATE</code>.</p>
+  <table>
+    <tr><th style="width:17%">Coluna</th><th style="width:36%">Regra aplicada</th><th>Comportamento em caso de problema</th></tr>
+    <tr><td class="rot">NR_IDADE</td><td>Idade atual calculada com <code>MONTHS_BETWEEN</code> entre a data da carga e a data de nascimento</td><td>Sem data válida, ou com resultado fora de 0 a 130, grava nulo e registra a divergência</td></tr>
+    <tr><td class="rot">NM_FAIXA_ETARIA</td><td>CRIANCA até 11 anos, ADOLESCENTE de 12 a 17, ADULTO de 18 a 59 e IDOSO a partir de 60</td><td>Sem idade calculada, grava nulo e registra a divergência</td></tr>
+    <tr><td class="rot">NM_SEXO</td><td>Receita como origem principal (F e M) e Prefeitura como conferência (1 e 2)</td><td>Em branco grava NAO_INFORMADO. Valor diferente entre as origens registra a divergência</td></tr>
+    <tr><td class="rot">NM_ESCOLARIDADE</td><td>Texto da Receita em maiúsculas, sem o código numérico e o hífen iniciais</td><td>Sem conteúdo na origem, a coluna fica em branco, sem divergência</td></tr>
+  </table>
+  <p class="legtab"><b>Tabela 3.</b> Regras de negócio acrescentadas na versão 2 do script de carga. Fonte: elaborada pelo autor (2026), com base na planilha de regras do PBL.</p>
+
+  <h2><span class="n">2</span>Trechos centrais do código</h2>
+  <div class="duas">
+    <div>
+<pre><span class="c">-- Idade em variavel sem limite de tamanho,
+-- validada antes de ir para o registro</span>
+v_idade := <span class="k">NULL</span>;
+
+<span class="k">IF</span> v_rec_mdm_cidadao.dt_nascimento <span class="k">IS NOT NULL THEN</span>
+    v_idade := TRUNC(MONTHS_BETWEEN(SYSDATE,
+               v_rec_mdm_cidadao.dt_nascimento) / 12);
+
+    <span class="k">IF</span> v_idade <span class="k">NOT BETWEEN</span> 0 <span class="k">AND</span> 130 <span class="k">THEN</span>
+        v_idade := <span class="k">NULL</span>;
+    <span class="k">END IF</span>;
+<span class="k">END IF</span>;</pre>
+      <p class="legtab"><b>Código 1.</b> Cálculo da idade. O intervalo de 0 a 130 é o mesmo da constraint <span class="mono">CK_MDM_IDADE</span>.</p>
+    </div>
+    <div>
+<pre><span class="k">ELSIF</span> v_idade &lt;= 11 <span class="k">THEN</span>
+    v_rec_mdm_cidadao.nm_faixa_etaria := <span class="s">'CRIANCA'</span>;
+<span class="k">ELSIF</span> v_idade &lt;= 17 <span class="k">THEN</span>
+    v_rec_mdm_cidadao.nm_faixa_etaria := <span class="s">'ADOLESCENTE'</span>;
+<span class="k">ELSIF</span> v_idade &lt;= 59 <span class="k">THEN</span>
+    v_rec_mdm_cidadao.nm_faixa_etaria := <span class="s">'ADULTO'</span>;
+<span class="k">ELSE</span>
+    v_rec_mdm_cidadao.nm_faixa_etaria := <span class="s">'IDOSO'</span>;
+<span class="k">END IF</span>;</pre>
+      <p class="legtab"><b>Código 2.</b> Faixa etária em IF e ELSIF. Cada teste só verifica o limite superior, porque o anterior já eliminou os menores.</p>
+<pre>v_rec_mdm_cidadao.nm_escolaridade :=
+    REGEXP_REPLACE(UPPER(TRIM(v_rec_receita.ESCOLARIDADE)),
+                   <span class="s">'^[0-9]+ *- *'</span>, <span class="s">''</span>);</pre>
+      <p class="legtab"><b>Código 3.</b> Escolaridade: remove o código numérico e o hífen apenas quando existem no início do texto.</p>
+    </div>
+  </div>
+
+  <h2><span class="n">3</span>Decisões de implementação</h2>
+  <table>
+    <tr><th style="width:27%">Situação</th><th>Decisão e motivo</th></tr>
+    <tr><td class="rot">Faixa "bebê" (0 a 2 anos)</td><td>A planilha prevê essa faixa, mas a constraint <code>CK_MDM_FAIXA_ETARIA</code> da tabela não aceita o valor. Gravar BEBE interromperia a carga inteira, então a faixa de 0 a 2 anos é gravada como CRIANCA, com comentário no código.</td></tr>
+    <tr><td class="rot">Escolaridade sem código</td><td>A expressão regular só remove o prefixo quando ele existe. Um corte por posição fixa transformaria SUPERIOR_INCOMPLETO em PERIOR_INCOMPLETO.</td></tr>
+    <tr><td class="rot">Tipo da coluna de sexo</td><td>O <code>TO_CHAR</code> faz a comparação funcionar com a coluna importada como número ou como texto, o que depende de como o assistente de importação criou a tabela.</td></tr>
+    <tr><td class="rot">Comparação com nulo</td><td>O teste <code>IS NULL</code> explícito é o que captura o valor 3 da Prefeitura. Sem ele, a comparação com nulo não seria verdadeira e a divergência passaria despercebida.</td></tr>
+  </table>
+  <p class="legtab"><b>Tabela 4.</b> Decisões tomadas durante a implementação. Fonte: elaborada pelo autor (2026).</p>
+  <div class="rodape"><span>Thiago Fiel de Oliveira | RM 570088 | Grupo DataGuy | FIAP 2026</span><span>4</span></div>
+</section>
+
+<!-- ============================ PAGINA 5 ============================ -->
+<section class="pagina">
+  <div class="topo">
+    <div><div class="marca">UrbanIQ</div><div class="lema">Plataforma Inteligente de Gestão de Chamados Urbanos</div></div>
+    <div class="selo">FASE 6 &nbsp;|&nbsp; 1ª ENTREGA</div>
+  </div>
+  <h1>A carga: 100 cidadãos processados, nenhum erro</h1>
+  <p class="abre">Com a tabela de dados mestres recém-criada, o script v2 foi executado do início ao fim.</p>
+
+  <h2><span class="n">1</span>Execução do script v2</h2>
+  <p>A tabela <code>T_MDM_CIDADAO</code> foi recriada pelo script <code>cria_mdm_cidadao.sql</code> e, em seguida, o v2 foi executado como script. O relatório impresso ao final do bloco PL/SQL confirma que os 100 registros lidos da Prefeitura foram cruzados com a Receita e inseridos, sem nenhuma atualização e sem nenhum erro.</p>
+  <div class="duas">
+    <figure style="margin-top:2pt">
+      <img src="img/03-carga-v2.png" alt="Execução do script v2 com o relatório de processamento">
+      <figcaption><b>Figura 3.</b> Execução do script v2. Acima, o cabeçalho com a identificação do grupo; abaixo, o relatório de processamento.
+        <span class="fonte">Fonte: execução do autor no Oracle SQL Developer (2026).</span></figcaption>
+    </figure>
+    <div>
+      <div class="numeros grade">
+        <div class="numero"><div class="v">100</div><div class="r">registros lidos</div></div>
+        <div class="numero bom"><div class="v">100</div><div class="r">inseridos com sucesso</div></div>
+        <div class="numero"><div class="v">0</div><div class="r">atualizados</div></div>
+        <div class="numero bom"><div class="v">0</div><div class="r">erros</div></div>
+      </div>
+      <p>A execução levou menos de um segundo e terminou com a mensagem de procedimento concluído com sucesso. Como a tabela estava vazia, todos os registros entraram pelo <code>INSERT</code>.</p>
+      <div class="nota"><b class="t">O que o relatório garante</b>
+        <p>Nenhuma das constraints da tabela foi violada. Isso significa que todos os valores gravados de sexo, faixa etária e idade estão dentro dos domínios que a <span class="mono">T_MDM_CIDADAO</span> aceita.</p></div>
+    </div>
+  </div>
+
+  <h2><span class="n">2</span>Conferência das colunas novas</h2>
+  <p>Carregar sem erro não basta: é preciso confirmar que as colunas foram de fato preenchidas. A consulta abaixo conta quantos registros têm conteúdo em cada uma das quatro colunas novas.</p>
+  <figure class="media">
+    <img src="img/05-conferencia.png" alt="Contagem de registros preenchidos por coluna">
+    <figcaption><b>Figura 4.</b> Preenchimento das colunas novas: sexo e escolaridade em 100 registros, idade e faixa etária em 94.
+      <span class="fonte">Fonte: execução do autor no Oracle SQL Developer (2026).</span></figcaption>
+  </figure>
+  <p>Os 6 registros sem idade e sem faixa etária não são falha da carga. São exatamente os 6 cidadãos sem data de nascimento válida apontados no diagnóstico: 3 com 99/99/9999 na Receita e 3 com a data em branco na Prefeitura. A regra de negócio manda não calcular a idade nesses casos.</p>
+  <div class="rodape"><span>Thiago Fiel de Oliveira | RM 570088 | Grupo DataGuy | FIAP 2026</span><span>5</span></div>
+</section>
+
+<!-- ============================ PAGINA 6 ============================ -->
+<section class="pagina">
+  <div class="topo">
+    <div><div class="marca">UrbanIQ</div><div class="lema">Plataforma Inteligente de Gestão de Chamados Urbanos</div></div>
+    <div class="selo">FASE 6 &nbsp;|&nbsp; 1ª ENTREGA</div>
+  </div>
+  <h1>Antes e depois: a mesma consulta, dois resultados</h1>
+  <p class="abre">A comparação mais direta do que o v2 entrega é rodar a mesma consulta sobre a tabela carregada por cada versão.</p>
+
+  <h2><span class="n">1</span>Antes: a carga do script v1</h2>
+  <p>Com o script original do exercício guiado, as colunas <code>NR_IDADE</code>, <code>NM_FAIXA_ETARIA</code>, <code>NM_SEXO</code> e <code>NM_ESCOLARIDADE</code> ficam nulas para todos os cidadãos.</p>
+  <figure>
+    <img src="img/02-antes-v1.png" alt="Tabela T_MDM_CIDADAO após o script v1">
+    <figcaption><b>Figura 5.</b> Conteúdo da <span class="mono">T_MDM_CIDADAO</span> após o script v1. As quatro colunas aparecem como (null) em todas as linhas.
+      <span class="fonte">Fonte: execução do autor no Oracle SQL Developer (2026).</span></figcaption>
+  </figure>
+
+  <h2><span class="n">2</span>Depois: a carga do script v2</h2>
+  <p>Com a versão 2, as mesmas colunas passam a ter conteúdo tratado e dentro dos domínios aceitos pela tabela.</p>
+  <figure>
+    <img src="img/04-depois-v2.png" alt="Tabela T_MDM_CIDADAO após o script v2">
+    <figcaption><b>Figura 6.</b> Conteúdo da <span class="mono">T_MDM_CIDADAO</span> após o script v2, com idade, faixa etária, sexo e escolaridade preenchidos.
+      <span class="fonte">Fonte: execução do autor no Oracle SQL Developer (2026).</span></figcaption>
+  </figure>
+
+  <h2><span class="n">3</span>Como ler a comparação</h2>
+  <table>
+    <tr><th style="width:22%">Cidadão (linha)</th><th style="width:30%">O que a Figura 6 mostra</th><th>Regra confirmada</th></tr>
+    <tr><td class="rot">Luiz Miguel Porto (1)</td><td>33 anos, ADULTO, SUPERIOR_INCOMPLETO</td><td>Escolaridade sem código numérico na origem foi mantida inteira</td></tr>
+    <tr><td class="rot">Juliana Duarte (2)</td><td>69 anos, IDOSO, MEDIO</td><td>Faixa IDOSO a partir de 60 anos; o código 2-MEDIO virou MEDIO</td></tr>
+    <tr><td class="rot">Yan Farias (7)</td><td>Data, idade e faixa nulas, sexo MASCULINO</td><td>Data 99/99/9999 na Receita: a idade não é calculada, mas o sexo é preenchido normalmente</td></tr>
+    <tr><td class="rot">Ana Sophia Oliveira (12)</td><td>FEMININO, divergência passa de NAO para SIM</td><td>Sexo F na Receita e 3 na Prefeitura: prevalece a Receita e a divergência é registrada</td></tr>
+  </table>
+  <p class="legtab"><b>Tabela 5.</b> Leitura de quatro registros que aparecem nas Figuras 5 e 6. Fonte: elaborada pelo autor (2026).</p>
+  <div class="nota"><b class="t">O ganho em uma frase</b>
+    <p>Antes do v2, a tabela de dados mestres não respondia quantos idosos a cidade tem, nem qual é a escolaridade da população. Depois do v2, responde.</p></div>
+  <div class="rodape"><span>Thiago Fiel de Oliveira | RM 570088 | Grupo DataGuy | FIAP 2026</span><span>6</span></div>
+</section>
+
+<!-- ============================ PAGINA 7 ============================ -->
+<section class="pagina">
+  <div class="topo">
+    <div><div class="marca">UrbanIQ</div><div class="lema">Plataforma Inteligente de Gestão de Chamados Urbanos</div></div>
+    <div class="selo">FASE 6 &nbsp;|&nbsp; GOVERNANÇA</div>
+  </div>
+  <h1>Governança: o que ficou sinalizado e por quê</h1>
+  <p class="abre">Um dado mestre confiável não esconde os problemas das origens. Ele os registra, para que possam ser corrigidos onde nasceram.</p>
+
+  <h2><span class="n">1</span>Registros com e sem divergência</h2>
+  <div class="duas">
+    <figure style="margin-top:2pt">
+      <img src="img/06-divergencias.png" alt="Quantidade de cidadãos por flag de divergência">
+      <figcaption><b>Figura 7.</b> Cidadãos por <span class="mono">FL_DIVERGENCIA</span>: 67 sem divergência e 33 sinalizados.
+        <span class="fonte">Fonte: execução do autor no Oracle SQL Developer (2026).</span></figcaption>
+    </figure>
+    <div>
+      <p>Dos 100 cidadãos, 67 chegaram ao dado mestre com todas as informações coerentes entre as duas origens. Os outros 33 foram carregados, mas com a coluna <code>FL_DIVERGENCIA</code> igual a SIM e o motivo descrito em <code>DS_DIVERGENCIA</code>.</p>
+      <table>
+        <tr><th>Motivo da divergência</th><th class="num">Cidadãos</th></tr>
+        <tr><td>Somente nome diferente entre as origens</td><td class="num">26</td></tr>
+        <tr><td>Somente data de nascimento inválida ou ausente</td><td class="num">5</td></tr>
+        <tr><td>Nome diferente e data inválida</td><td class="num">1</td></tr>
+        <tr><td>Sexo diferente entre as origens</td><td class="num">1</td></tr>
+        <tr><td class="rot">Total sinalizado</td><td class="num"><b>33</b></td></tr>
+      </table>
+      <p class="legtab"><b>Tabela 6.</b> Composição dos 33 registros com divergência. Fonte: elaborada pelo autor (2026).</p>
+      <p>O script v1 já sinalizava 32 desses registros, por nome e por data. A regra de sexo do v2 acrescentou 1 caso que antes passava como registro limpo.</p>
+    </div>
+  </div>
+
+  <h2><span class="n">2</span>Os casos tratados pelas regras novas</h2>
+  <p>A consulta a seguir isola os 7 cidadãos alcançados pelas regras do v2: o caso de sexo divergente e os 6 sem data de nascimento válida. Em todos, a coluna <code>DS_DIVERGENCIA</code> explica o que aconteceu, e as mensagens se acumulam quando há mais de um problema no mesmo registro.</p>
+  <figure>
+    <img src="img/07-casos-tratados.png" alt="Cidadãos com divergência de sexo ou sem data de nascimento válida">
+    <figcaption><b>Figura 8.</b> Os 7 registros tratados pelas regras novas. Na primeira linha, o caso de sexo; nas demais, idade e faixa etária nulas por falta de data válida.
+      <span class="fonte">Fonte: execução do autor no Oracle SQL Developer (2026).</span></figcaption>
+  </figure>
+  <div class="nota"><b class="t">Leitura de governança</b>
+    <p>A divergência não é corrigida por adivinhação dentro do MDM. O registro é carregado com o melhor valor disponível, fica marcado e leva a descrição do problema. Com isso, a Secretaria sabe exatamente quais 33 cadastros precisam ser revistos nos sistemas de origem, e os 67 restantes podem ser usados com segurança.</p></div>
+  <div class="rodape"><span>Thiago Fiel de Oliveira | RM 570088 | Grupo DataGuy | FIAP 2026</span><span>7</span></div>
+</section>
+
+<!-- ============================ PAGINA 8 ============================ -->
+<section class="pagina">
+  <div class="topo">
+    <div><div class="marca">UrbanIQ</div><div class="lema">Plataforma Inteligente de Gestão de Chamados Urbanos</div></div>
+    <div class="selo">FASE 6 &nbsp;|&nbsp; 1ª ENTREGA</div>
+  </div>
+  <h1>Reexecução: atualizar sem duplicar</h1>
+  <p class="abre">Uma carga de dados mestres roda muitas vezes. O teste que faltava era executar o v2 de novo sobre a tabela já carregada.</p>
+
+  <h2><span class="n">1</span>Segunda execução do script v2</h2>
+  <p>O capítulo define que, quando o cidadão já existe no dado mestre, todos os seus dados cadastrais devem ser atualizados. No script, isso acontece quando o <code>INSERT</code> esbarra na chave única do CPF e a exceção <code>DUP_VAL_ON_INDEX</code> desvia o fluxo para o <code>UPDATE</code>.</p>
+  <p>Sem recriar a tabela, o v2 foi executado pela segunda vez. O resultado foi o esperado: nenhum registro novo e 100 atualizações.</p>
+  <div class="numeros">
+    <div class="numero"><div class="v">100</div><div class="r">registros lidos</div></div>
+    <div class="numero"><div class="v">0</div><div class="r">inseridos</div></div>
+    <div class="numero bom"><div class="v">100</div><div class="r">atualizados</div></div>
+    <div class="numero bom"><div class="v">0</div><div class="r">erros</div></div>
+  </div>
+  <figure class="pequena">
+    <img src="img/08-reexecucao.png" alt="Segunda execução do script v2 com 100 atualizações">
+    <figcaption><b>Figura 9.</b> Segunda execução do script v2: cada CPF já cadastrado gera uma linha de UPDATE e o relatório final mostra 0 inseridos e 100 atualizados.
+      <span class="fonte">Fonte: execução do autor no Oracle SQL Developer (2026).</span></figcaption>
+  </figure>
+
+  <h2><span class="n">2</span>Por que esse teste é necessário</h2>
+  <p>As quatro colunas novas precisavam entrar em dois lugares do script: na inserção e na atualização. Se ficassem só no <code>INSERT</code>, a primeira carga funcionaria normalmente e o defeito só apareceria na segunda, quando o cidadão seria atualizado com idade, faixa etária, sexo e escolaridade antigos.</p>
+  <div class="nota"><b class="t">Resultado</b>
+    <p>A tabela continua com 100 registros, um por CPF, e a coluna <span class="mono">DT_CARGA</span> passa a refletir a execução mais recente. A carga pode ser repetida sempre que as origens mudarem, sem gerar duplicidade.</p></div>
+  <div class="rodape"><span>Thiago Fiel de Oliveira | RM 570088 | Grupo DataGuy | FIAP 2026</span><span>8</span></div>
+</section>
+
+<!-- ============================ PAGINA 9 ============================ -->
+<section class="pagina">
+  <div class="topo">
+    <div><div class="marca">UrbanIQ</div><div class="lema">Plataforma Inteligente de Gestão de Chamados Urbanos</div></div>
+    <div class="selo">FASE 6 &nbsp;|&nbsp; 2ª ENTREGA</div>
+  </div>
+  <h1>A resposta para o gestor: população por faixa etária e escolaridade</h1>
+  <p class="abre">Com o dado mestre preenchido, a pergunta da área de negócio passa a ter resposta em uma única consulta.</p>
+
+  <h2><span class="n">1</span>A view lógica</h2>
+  <div class="duas">
+    <div>
+      <p>A view <code>V_MDM_FX_ETARIA_ESCOLARIDADE</code> lê a tabela de dados mestres e devolve a quantidade de cidadãos em cada combinação de faixa etária e escolaridade. Por ser uma view lógica, ela não armazena dado: cada consulta reflete a carga mais recente.</p>
+<pre><span class="k">CREATE OR REPLACE VIEW</span> V_MDM_FX_ETARIA_ESCOLARIDADE <span class="k">AS</span>
+<span class="k">SELECT</span>  NVL(nm_faixa_etaria, <span class="s">'NAO_INFORMADO'</span>)
+            <span class="k">AS</span> nm_faixa_etaria,
+        NVL(nm_escolaridade, <span class="s">'NAO_INFORMADO'</span>)
+            <span class="k">AS</span> nm_escolaridade,
+        COUNT(*) <span class="k">AS</span> qtde_cidadaos
+<span class="k">FROM</span>    t_mdm_cidadao
+<span class="k">GROUP BY</span> NVL(nm_faixa_etaria, <span class="s">'NAO_INFORMADO'</span>),
+         NVL(nm_escolaridade, <span class="s">'NAO_INFORMADO'</span>)
+<span class="k">ORDER BY</span> qtde_cidadaos <span class="k">DESC</span>,
+         NVL(nm_faixa_etaria, <span class="s">'NAO_INFORMADO'</span>),
+         NVL(nm_escolaridade, <span class="s">'NAO_INFORMADO'</span>);</pre>
+      <p class="legtab"><b>Código 4.</b> Instrução que cria a view, disponível no arquivo <span class="mono">cria_view_qtd_total_fx_etaria_escolaridade.sql</span>.</p>
+      <p><b>Ordenação.</b> A visão é ordenada da maior para a menor quantidade, para que os maiores grupos da população apareçam primeiro, como na view de estado civil do exercício guiado. Faixa etária e escolaridade entram como desempate, o que mantém sempre a mesma ordem entre grupos de mesmo tamanho.</p>
+      <p><b>Nulos.</b> Os 6 cidadãos sem faixa etária aparecem como NAO_INFORMADO. Assim ninguém some da contagem e a soma da view é igual ao total da tabela: 100.</p>
+    </div>
+    <figure style="margin-top:2pt">
+      <img src="img/09-view.png" alt="Criação e resultado da view de faixa etária e escolaridade">
+      <figcaption><b>Figura 10.</b> Criação da view e resultado da consulta: 16 grupos, somando 100 cidadãos.
+        <span class="fonte">Fonte: execução do autor no Oracle SQL Developer (2026).</span></figcaption>
+    </figure>
+  </div>
+
+  <h2><span class="n">2</span>O que a visão mostra para a gestão pública</h2>
+  <div class="numeros">
+    <div class="numero"><div class="v">20</div><div class="r">adultos com pós, o maior grupo</div></div>
+    <div class="numero alerta"><div class="v">16</div><div class="r">idosos com até o fundamental</div></div>
+    <div class="numero alerta"><div class="v">9</div><div class="r">adultos analfabetos</div></div>
+    <div class="numero"><div class="v">6</div><div class="r">sem faixa etária definida</div></div>
+  </div>
+  <table>
+    <tr><th style="width:30%">Achado</th><th>Leitura e possível direcionamento</th></tr>
+    <tr><td class="rot">Adultos com pós-graduação</td><td>São 20 dos 57 adultos (35%). É o maior grupo da cidade e um público de alta qualificação, pouco dependente de programas de formação básica.</td></tr>
+    <tr><td class="rot">Idosos com baixa escolaridade</td><td>Dos 37 idosos, 10 têm ensino fundamental e 6 são analfabetos, o que soma 16 pessoas (43%). É o público natural de ações de alfabetização e de inclusão digital para a terceira idade.</td></tr>
+    <tr><td class="rot">Adultos analfabetos</td><td>São 9 pessoas em idade de trabalho. Programas de educação de jovens e adultos e de capacitação profissional alcançam diretamente esse grupo.</td></tr>
+    <tr><td class="rot">Faixa etária não informada</td><td>Enquanto a data de nascimento não for corrigida na origem, esses 6 cidadãos ficam fora de qualquer política definida por idade.</td></tr>
+  </table>
+  <p class="legtab"><b>Tabela 7.</b> Leitura dos principais grupos da view. A massa de dados é fictícia e tem 100 registros: os percentuais ilustram o tipo de análise que a visão permite. Fonte: elaborada pelo autor (2026).</p>
+  <div class="rodape"><span>Thiago Fiel de Oliveira | RM 570088 | Grupo DataGuy | FIAP 2026</span><span>9</span></div>
+</section>
+
+<!-- ============================ PAGINA 10 ============================ -->
+<section class="pagina">
+  <div class="topo">
+    <div><div class="marca">UrbanIQ</div><div class="lema">Plataforma Inteligente de Gestão de Chamados Urbanos</div></div>
+    <div class="selo">FASE 6 &nbsp;|&nbsp; CONCLUSÃO</div>
+  </div>
+  <h1>Conclusão</h1>
+  <p class="abre">A fase partiu de uma pergunta: um único registro por cidadão pode sustentar decisões públicas? A resposta é sim, com uma condição.</p>
+
+  <h2><span class="n">1</span>O que foi entregue</h2>
+  <table>
+    <tr><th style="width:42%">Solicitação do PBL</th><th style="width:38%">Como foi atendida</th><th>Evidência</th></tr>
+    <tr><td>Gerar a versão 2 do script, com as regras de idade, faixa etária, sexo e escolaridade</td><td><span class="mono">script_carrega_dados_T_MDM_CIDADAO_v2.sql</span>, em pleno funcionamento</td><td>Figuras 3, 4 e 6</td></tr>
+    <tr><td>Colunas que estavam nulas devem aparecer com conteúdo significativo</td><td>Sexo e escolaridade em 100 registros; idade e faixa em 94, com os 6 restantes justificados</td><td>Figuras 4, 5 e 6</td></tr>
+    <tr><td>Atualizar os dados do cidadão já cadastrado</td><td>Segunda execução com 100 atualizações e nenhuma duplicidade</td><td>Figura 9</td></tr>
+    <tr><td>Identificar os componentes do grupo no início do script</td><td>Cabeçalho com grupo, nome e RM</td><td>Figura 3</td></tr>
+    <tr><td>Construir a view por faixa etária e escolaridade, executar e gerar evidência</td><td><span class="mono">cria_view_qtd_total_fx_etaria_escolaridade.sql</span></td><td>Figura 10</td></tr>
+  </table>
+  <p class="legtab"><b>Tabela 8.</b> Rastreabilidade entre o que o PBL solicita e o que foi entregue. Fonte: elaborada pelo autor (2026).</p>
+
+  <h2><span class="n">2</span>O que a fase mostrou</h2>
+  <p>O registro único funciona como base de decisão porque ele não trata todos os cadastros como igualmente confiáveis. Dos 100 cidadãos, 67 são registros sem nenhuma divergência entre as origens. Os outros 33 estão no dado mestre, mas identificados, com o motivo escrito ao lado. Essa é a condição: a confiança vem da transparência sobre a qualidade, e não da ausência de problemas.</p>
+  <p>O efeito prático aparece na view. Com quatro colunas a mais, a mesma tabela que antes só informava o estado civil passou a mostrar onde estão os idosos com baixa escolaridade e os adultos que ainda não foram alfabetizados, que são os públicos que um programa social precisa encontrar.</p>
+
+  <h2><span class="n">3</span>Limites observados</h2>
+  <table>
+    <tr><th style="width:30%">Ponto</th><th>Observação</th></tr>
+    <tr><td class="rot">Nomes com sufixo numérico</td><td>Quatro nomes vêm da Receita com "123" ao final. Como a Receita é a origem principal do nome, esse texto chega ao dado mestre. Os registros ficam sinalizados, mas a correção definitiva depende da origem.</td></tr>
+    <tr><td class="rot">Idade é uma fotografia</td><td>A idade é calculada na data da carga e registrada em <code>DT_CARGA</code>. Para se manter atual, a carga precisa ser repetida periodicamente.</td></tr>
+    <tr><td class="rot">Faixa de 0 a 2 anos</td><td>Para registrar "bebê" como faixa própria, a constraint da tabela precisaria ser ampliada. Nesta massa não há cidadãos com menos de 22 anos, então o resultado não é afetado.</td></tr>
+  </table>
+  <p class="legtab"><b>Tabela 9.</b> Limites da solução nesta fase. Fonte: elaborada pelo autor (2026).</p>
+
+  <h2><span class="n">4</span>Conexão com o UrbanIQ e próximo passo</h2>
+  <p>O UrbanIQ prioriza e encaminha chamados urbanos abertos por cidadãos. Um cadastro mestre confiável é o que permite, mais adiante, ligar cada chamado a um cidadão único e entender quem a cidade está atendendo. Na Fase 7, o bloco anônimo desta entrega evolui para blocos nomeados em PL/SQL, o que torna a carga reutilizável e agendável.</p>
+  <div class="nota"><b class="t">Em uma frase</b>
+    <p>Dois cadastros que não concordavam viraram um registro por cidadão, com a qualidade de cada um declarada, e esse registro já responde a uma pergunta real da gestão pública.</p></div>
+  <div class="rodape"><span>Thiago Fiel de Oliveira | RM 570088 | Grupo DataGuy | FIAP 2026</span><span>10</span></div>
+</section>
+
+</body>
+</html>

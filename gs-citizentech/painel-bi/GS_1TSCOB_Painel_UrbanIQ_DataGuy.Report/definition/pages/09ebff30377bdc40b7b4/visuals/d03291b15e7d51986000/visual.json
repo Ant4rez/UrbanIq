@@ -1,0 +1,64 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "d03291b15e7d51986000",
+  "position": {
+    "x": 20,
+    "y": 12,
+    "z": 1000,
+    "height": 80,
+    "width": 1100,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "UrbanIQ | Zeladoria urbana em São Paulo: quem chega até a Prefeitura?",
+                    "textStyle": {
+                      "fontSize": "22pt",
+                      "color": "#1E2A4A",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Chamados de zeladoria do SP156 (abr a set/2026) cruzados com a população do Censo 2022, por subprefeitura e anel territorial.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#6B7488"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

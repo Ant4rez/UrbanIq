@@ -1,6 +1,6 @@
 <div align="center">
 
-# UrbanIQ
+<img src="docs/assets/logo-urbaniq.png" alt="UrbanIQ" width="460">
 
 ### Plataforma Inteligente de Gestão de Chamados Urbanos
 
@@ -9,7 +9,8 @@
 <br>
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-C4A882?style=for-the-badge)
-![Fase](https://img.shields.io/badge/fase-5%20de%207-3D3630?style=for-the-badge)
+![Fase](https://img.shields.io/badge/fase-6%20de%207-3D3630?style=for-the-badge)
+[![Global Solution](https://img.shields.io/badge/Global_Solution-2026.2-12A594?style=for-the-badge)](gs-citizentech/README.md)
 [![Licença](https://img.shields.io/badge/licença-MIT-F9F6F0?style=for-the-badge&labelColor=3D3630)](LICENSE)
 
 ![Oracle](https://img.shields.io/badge/Oracle_21c-F80000?style=flat-square&logo=oracle&logoColor=white)
@@ -18,6 +19,7 @@
 ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
 ![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square&logo=postgresql&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=flat-square&logo=scipy&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white)
 
@@ -34,6 +36,18 @@
 O projeto nasce do **Desafio 3 — Participação Cidadã e Serviços Públicos** da cidade fictícia *Alfa*, no contexto do PBL (*Project Based Learning*) da FIAP, e é desenvolvido como um **pipeline de dados completo de 7 fases**, da descoberta do problema à entrega de um produto de dados com impacto social.
 
 > **Visão de produto:** ser a ponte inteligente entre o problema do cidadão e a ação da gestão pública, orientada por dados.
+
+---
+
+## Global Solution 2026.2: CitizenTech com dados reais
+
+Na Global Solution da FIAP, levei o UrbanIQ para **dados reais**: 245 mil pedidos de zeladoria do SP156 (abr a set/2026) cruzados com o Censo 2022. A hipótese inicial era que a periferia esperava mais pelo atendimento. Os dados mostraram outra coisa: o prazo é igual (mediana de 2 dias), mas **a periferia registra 22% menos pedidos por habitante** (Spearman ρ = −0,61). O problema existe, mas não vira chamado.
+
+<div align="center">
+<img src="gs-citizentech/docs/g7_mapa_demanda.png" alt="Mapa da demanda de zeladoria em São Paulo" width="440">
+</div>
+
+[![Vídeo pitch](https://img.shields.io/badge/vídeo_pitch-YouTube-ED185C?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/WETcig7gwHQ) · Detalhes, notebook e painel em [`gs-citizentech/`](gs-citizentech/README.md)
 
 ---
 
@@ -320,7 +334,7 @@ dashboards/powerbi/
 
 ## Métricas do Projeto
 
-Consolidado dos números do pipeline UrbanIQ ao longo das fases 2 a 5:
+Consolidado dos números do pipeline UrbanIQ ao longo das fases 2 a 5 e da Global Solution:
 
 | Camada | Métrica | Valor |
 |---|---|---|
@@ -338,6 +352,9 @@ Consolidado dos números do pipeline UrbanIQ ao longo das fases 2 a 5:
 | **Fase 5 — Estatística** | Inconsistências plantadas | 9 tipos |
 | **Fase 5 — Estatística** | Registros após limpeza | 9.980 (perda de 1,96%) |
 | **Fase 5 — Estatística** | Critérios automáticos de acessibilidade da paleta | 6 |
+| **Global Solution** | Chamados reais de zeladoria analisados (SP156) | 245.152 |
+| **Global Solution** | Subprefeituras integradas ao Censo 2022 | 32 (11,45 milhões de hab.) |
+| **Global Solution** | Técnicas estatísticas aplicadas | 4 (integração, testes de hipóteses, correlação, probabilidade) |
 | **Reprodutibilidade** | Seeds fixas | `random.seed(42)` (Power BI) e `570088` (Fase 5) |
 
 Todos os números são verificáveis nos scripts de geração e nos entregáveis em PDF de cada fase.
@@ -400,7 +417,7 @@ UrbanIQ/
 │   └── config.toml                        # Tema institucional do painel Streamlit
 │
 ├── docs/
-│   └── assets/                            # Imagens do README (diagramas)
+│   └── assets/                            # Imagens do README (diagramas e logo)
 │
 ├── dashboards/
 │   └── powerbi/                           # Dashboard Power BI (7 páginas, 16 medidas DAX)
@@ -437,13 +454,27 @@ UrbanIQ/
 │   ├── graficos/                          # Visualizações estáticas (PNG)
 │   └── mapa/                              # Mapa interativo (HTML) + preview
 │
-└── fase5-analitica/                       # Inteligência Analítica e Tomada de Decisão
-    ├── entregaveis/                       # PDF final da Fase 5 + notebook entregue
-    ├── dados/                             # Massa sintética (10.180 ocorrências, XLSX)
-    ├── scripts/                           # Gerador da massa de dados (Python)
-    ├── notebook/                          # Notebook único: preparação, estatística e painel
-    ├── dashboard/                         # App Streamlit (app_urbaniq.py)
-    └── graficos/                          # Evidências de execução (PNG)
+├── fase5-analitica/                       # Inteligência Analítica e Tomada de Decisão
+│   ├── entregaveis/                       # PDF final da Fase 5 + notebook entregue
+│   ├── dados/                             # Massa sintética (10.180 ocorrências, XLSX)
+│   ├── scripts/                           # Gerador da massa de dados (Python)
+│   ├── notebook/                          # Notebook único: preparação, estatística e painel
+│   ├── dashboard/                         # App Streamlit (app_urbaniq.py)
+│   └── graficos/                          # Evidências de execução (PNG)
+│
+├── fase6-governanca/                      # Engenharia e Governança de Dados
+│   ├── entregaveis/                       # PDF final da Fase 6
+│   ├── sql/                               # Scripts SQL e view de governança
+│   ├── evidencias/                        # Capturas de execução (PNG)
+│   ├── relatorio/                         # Fontes do relatório
+│   └── assets/                            # Imagens auxiliares
+│
+└── gs-citizentech/                        # Global Solution 2026.2 (SP156 + Censo 2022)
+    ├── entregaveis/                       # PDF do pitch, notebook executado e ZIP
+    ├── painel-bi/                         # Painel Power BI com mapa (.pbix / .pbip)
+    ├── pitch/                             # Slides, roteiro, áudios e logos
+    ├── notebook/                          # Gerador do notebook (build_nb.py)
+    └── docs/                              # Imagens do README da GS
 ```
 
 ---
@@ -457,8 +488,9 @@ UrbanIQ/
 | **3** | Coleta, Ingestão e Persistência (Big Data) | Concluída |
 | **4** | Exploração e Preparação de Dados | Concluída |
 | **5** | Inteligência Analítica, Estatística e Tomada de Decisão | Concluída |
-| **6** | Engenharia e Governança de Dados | Próxima |
-| **7** | Produto de Dados e Impacto Social | Planejada |
+| **6** | Engenharia e Governança de Dados | Concluída |
+| **7** | Produto de Dados e Impacto Social | Próxima |
+| **GS** | Global Solution 2026.2: CitizenTech com dados reais do SP156 | Concluída |
 
 ---
 

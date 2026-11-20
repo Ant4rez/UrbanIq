@@ -1,0 +1,18 @@
+relationship c152d718-8d37-4e87-a0cc-ab7aeb70f900
+	joinOnDateBehavior: datePartOnly
+	fromColumn: pbi_chamados.dt_abertura
+	toColumn: LocalDateTable_bc70c6c0-edb6-4aad-a57f-9d7e39547a88.Date
+
+relationship ad10f032-b077-4127-8dec-e451cae77792
+	joinOnDateBehavior: datePartOnly
+	fromColumn: pbi_chamados.dt_finalizacao
+	toColumn: LocalDateTable_4e2825e0-fccc-4a7b-8759-746b9467c802.Date
+
+relationship rel_chamados_subprefeitura
+	fromColumn: pbi_chamados.subprefeitura
+	toColumn: pbi_subprefeituras.subprefeitura_chave
+
+relationship rel_chamados_calendario
+	fromColumn: pbi_chamados.dt_abertura
+	toColumn: Calendario.Date
+

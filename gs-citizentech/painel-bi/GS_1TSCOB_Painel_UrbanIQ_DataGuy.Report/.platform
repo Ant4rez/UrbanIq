@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "GS_1TSCOB_Painel_UrbanIQ_DataGuy"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e4430aa2-6b8c-47e0-a2c5-405825c92225"
+  }
+}

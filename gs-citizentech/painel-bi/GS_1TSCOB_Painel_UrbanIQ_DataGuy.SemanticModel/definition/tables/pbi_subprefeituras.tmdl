@@ -1,0 +1,141 @@
+table pbi_subprefeituras
+	lineageTag: c45b91fe-ccd4-4480-9d5a-8cf15c2b3f54
+
+	column subprefeitura_chave
+		dataType: string
+		isHidden
+		lineageTag: 4962e38a-cdf3-42fc-bdeb-1930f0ccde8a
+		summarizeBy: none
+		sourceColumn: subprefeitura_chave
+
+		annotation SummarizationSetBy = Automatic
+
+	column chamados
+		dataType: int64
+		formatString: 0
+		lineageTag: 17809ecc-21d4-415d-9856-ff525d4ad0f3
+		summarizeBy: sum
+		sourceColumn: chamados
+
+		annotation SummarizationSetBy = Automatic
+
+	column mediana_dias
+		dataType: int64
+		formatString: 0
+		lineageTag: 4bdc5774-5678-46e1-85d1-5f0fbaed7b03
+		summarizeBy: sum
+		sourceColumn: mediana_dias
+
+		annotation SummarizationSetBy = Automatic
+
+	column media_dias
+		dataType: double
+		lineageTag: cba321ea-911f-480d-95ea-99e4deb398a9
+		summarizeBy: sum
+		sourceColumn: media_dias
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pct_aberto
+		dataType: double
+		lineageTag: 9d44b5e0-7f8a-4050-a594-72ce0ddaf912
+		summarizeBy: sum
+		sourceColumn: pct_aberto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pct_telefone
+		dataType: double
+		lineageTag: 95765188-cc23-456d-b8a7-4db7cef980e7
+		summarizeBy: sum
+		sourceColumn: pct_telefone
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column km_mediana
+		dataType: double
+		lineageTag: 67adb281-b189-450b-875c-3e229007d7a2
+		summarizeBy: sum
+		sourceColumn: km_mediana
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column anel
+		dataType: string
+		lineageTag: 7336edd5-4097-4a25-adc1-2f6291d7d725
+		summarizeBy: none
+		sourceColumn: anel
+
+		annotation SummarizationSetBy = Automatic
+
+	column subprefeitura
+		dataType: string
+		lineageTag: fc139ce0-cc6b-4376-b01c-53242fa2849b
+		summarizeBy: none
+		sourceColumn: subprefeitura
+
+		annotation SummarizationSetBy = Automatic
+
+	column pop_2022
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ca3832e-8e2d-45df-8653-427ae488b0b5
+		summarizeBy: sum
+		sourceColumn: pop_2022
+
+		annotation SummarizationSetBy = Automatic
+
+	column chamados_mil_hab
+		dataType: double
+		lineageTag: 460d74f7-7ac2-4777-9940-85991f609329
+		summarizeBy: sum
+		sourceColumn: chamados_mil_hab
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column indice_subnotificacao
+		dataType: double
+		lineageTag: 652d5ed7-8770-4f36-bc41-1fa1048265c9
+		summarizeBy: sum
+		sourceColumn: indice_subnotificacao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Mediana da latitude dos chamados da subprefeitura
+	column lat_centro = CALCULATE(MEDIAN(pbi_chamados[lat]))
+		dataType: double
+		lineageTag: 65d098f2-d7cf-4b94-bcc0-184d5a6b42fa
+		dataCategory: Latitude
+		summarizeBy: average
+
+	/// Mediana da longitude dos chamados da subprefeitura
+	column lon_centro = CALCULATE(MEDIAN(pbi_chamados[lon]))
+		dataType: double
+		lineageTag: 7f0d18f5-75e6-4476-b5d7-014cc1f61d70
+		dataCategory: Longitude
+		summarizeBy: average
+
+	partition pbi_subprefeituras = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\thfie\Documents\Programação\FIAP\urbaniq\gs-citizentech\painel-bi\dados\pbi_subprefeituras.csv"),[Delimiter=";", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"subprefeitura_chave", type text}, {"chamados", Int64.Type}, {"mediana_dias", Int64.Type}, {"media_dias", type number}, {"pct_aberto", type number}, {"pct_telefone", type number}, {"km_mediana", type number}, {"anel", type text}, {"subprefeitura", type text}, {"pop_2022", Int64.Type}, {"chamados_mil_hab", type number}, {"indice_subnotificacao", type number}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

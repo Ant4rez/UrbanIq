@@ -1,0 +1,184 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "v60insights",
+  "position": {
+    "x": 1300,
+    "y": 655,
+    "z": 15000,
+    "height": 410,
+    "width": 600,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "3 principais insights",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "color": "#1E2A4A",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "6pt",
+                      "color": "#3A4459"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "1. O prazo é igual para todos. ",
+                    "textStyle": {
+                      "fontSize": "11.5pt",
+                      "color": "#12A594",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "A mediana é de 2 dias e cerca de 75% dos chamados são resolvidos em até 7 dias, no centro e na periferia.",
+                    "textStyle": {
+                      "fontSize": "11.5pt",
+                      "color": "#3A4459"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "6pt",
+                      "color": "#3A4459"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2. A periferia pede 22% menos por habitante. ",
+                    "textStyle": {
+                      "fontSize": "11.5pt",
+                      "color": "#ED185C",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "São 18,6 contra 23,9 pedidos por mil habitantes. Cidade Tiradentes registra menos da metade do que Jabaquara: o problema existe, mas não vira chamado.",
+                    "textStyle": {
+                      "fontSize": "11.5pt",
+                      "color": "#3A4459"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "6pt",
+                      "color": "#3A4459"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3. Um canal só digital excluiria quem já pede menos. ",
+                    "textStyle": {
+                      "fontSize": "11.5pt",
+                      "color": "#1E2A4A",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Na periferia, 34% dos pedidos chegam por telefone ou WhatsApp.",
+                    "textStyle": {
+                      "fontSize": "11.5pt",
+                      "color": "#3A4459"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "6pt",
+                      "color": "#3A4459"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Conexão com a solução: ",
+                    "textStyle": {
+                      "fontSize": "11.5pt",
+                      "color": "#12A594",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "o UrbanIQ é omnichannel (WhatsApp, áudio, 156, agente comunitário) e soma um bônus de equidade ao score de prioridade.",
+                    "textStyle": {
+                      "fontSize": "11.5pt",
+                      "color": "#3A4459"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E3F5F2'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
